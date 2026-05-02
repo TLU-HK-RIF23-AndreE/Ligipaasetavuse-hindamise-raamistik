@@ -8,26 +8,26 @@ Tabelis on WCAG 2.1 A ja AA taseme edukriteeriumid seostatud EN 301 549 nõueteg
 
 | WCAG | EN 301 549 | Nimetus | Tase | Hindamine | Põhjendus |
 |---|---|---|---|---|---|
-| 1.1.1 | 9.1.1.1 | Non-text Content | A | H | Automaatselt tuvastatakse puuduvad alt-atribuudid. Manuaalselt kontrollitakse, kas tekst kirjeldab pildi eesmärki (mitte lihtsalt "pilt1.jpg") ja kas dekoratiivsed pildid on märgitud tühja alt-tekstiga (alt=""). |
+| 1.1.1 | 9.1.1.1 | Non-text Content | A | H | Automaatselt tuvastatakse puuduvad `alt`-atribuudid. Manuaalselt kontrollitakse, kas tekst kirjeldab pildi eesmärki (mitte lihtsalt "pilt1.jpg") ja kas dekoratiivsed pildid on märgitud tühja alt-tekstiga (`alt=""`). |
 | 1.2.1 | 9.1.2.1 | Audio-only and Video-only (Prerecorded) | A | H | Automaatselt leitakse meediaelemendid. Manuaalselt tuleb kontrollida, et helifailil on täpne tekstiline transkriptsioon ja ainult videopõhisel sisul on kirjeldus, mis annab edasi kogu visuaalse info. |
-| 1.2.2 | 9.1.2.2 | Captions (Prerecorded) | A | H | Automaatselt saab tuvastada subtiitrite olemasolu, manuaalselt tuleb hinnata vastavust ja kasutatavust. |
-| 1.2.3 | 9.1.2.3 | Audio Description or Media Alternative (Prerecorded) | A | H | Automaatselt saab tuvastada struktuuri või alternatiivide olemasolu, manuaalselt sisulist vastavust. |
-| 1.2.4 | 9.1.2.4 | Captions (Live) | AA | H | Automaatselt saab tuvastada subtiitrite olemasolu, manuaalselt tuleb hinnata vastavust ja kasutatavust. |
-| 1.2.5 | 9.1.2.5 | Audio Description (Prerecorded) | AA | H | Automaatselt saab tuvastada audiokirjelduse olemasolu, manuaalselt tuleb hinnata sisulist vastavust. |
-| 1.3.1 | 9.1.3.1 | Info and Relationships | A | H | Automaatselt saab tuvastada struktuurielementide olemasolu, manuaalselt tuleb hinnata semantilist korrektsust ja sisu tähendust. |
-| 1.3.2 | 9.1.3.2 | Meaningful Sequence | A | H | Automaatselt saab tuvastada DOM-järjestuse, manuaalselt tuleb hinnata selle loogilisust. |
-| 1.3.3 | 9.1.3.3 | Sensory Characteristics | A | M | Sensoorsele tajule tugimenise tuvastamine ja selle arusaadavuse hindamine eeldab manuaalset kontrolli. |
-| 1.3.4 | 9.1.3.4 | Orientation | AA | H | Automaatselt saab tuvastada orientatsiooni piiranguid, erinevate seadmete kasutusolukordade hindamine eeldab manuaalset kontrolli. |
-| 1.3.5 | 9.1.3.5 | Identify Input Purpose | AA | H | Automaatselt saab tuvastada sisendväljade atribuutide olemasolu, korrektne kasutus ja eesmärgile vastavus eeldab manuaalset kontrolli. |
-| 1.4.1 | 9.1.4.1 | Use of Color | A | M | Automaatselt saab tuvastada värvikasutust ja kontraste, selle tähenduse ja sõltuvuse hindamine eeldab manuaalset kontrolli. |
-| 1.4.2 | 9.1.4.2 | Audio Control | A | H | Automaatselt saab tuvastada automaatselt käivituvat heli, selle peatamise või reguleerimise võimaluse hindamine eeldab manuaalset kontrolli. |
-| 1.4.3 | 9.1.4.3 | Contrast (Minimum) | AA | H | Automaatselt saab mõõta värvikontrasti, kuid kõigi kasutuskordade ja visuaalse esituse vastasuse hindamine eeldab manuaalset kontrolli. |
-| 1.4.4 | 9.1.4.4 | Resize Text | AA | H | Automaatselt saab tuvastada teksti suurendamisega seotud tehnilisi piiranguid, selle toimivuse hindamine eeldab manuaalset kontrolli. |
-| 1.4.5 | 9.1.4.5 | Images of Text | AA | H | Automaatselt saab tuvastada pildielemente, kuid tekstina esitatud info vajalikkuse ja sobivuse hindamine eeldab manuaalset kontrolli. |
-| 1.4.10 | 9.1.4.10 | Reflow | AA | H | Automaatselt saab tuvastada võimalikke paigutuse piiranguid, kuid sisu kohandumise ja kasutatavuse hindamine erinevate ekraanisuuruste korral eeldab manuaalset kontrolli. |
-| 1.4.11 | 9.1.4.11 | Non-text Contrast | AA | H | Automaatselt saab mõõta mitte-tekstiliste elementide kontrasti, kuid nende tähenduse ja visuaalse eristatavuse hindamine eeldab manuaalset kontrolli. |
-| 1.4.12 | 9.1.4.12 | Text Spacing | AA | H | Automaatselt saab tuvastada tekstivahedega seotud stiilipiiranguid, kuid sisu loetavuse ja toimivuse hindamine muudetud vahede korral eeldab manuaalset kontrolli. |
-| 1.4.13 | 9.1.4.13 | Content on Hover or Focus | AA | H | Automaatselt saab tuvastada hover- või fookusolekuga seotud elemente, kuid nende käitumise ja kasutatavuse hindamine eeldab manuaalset kontrolli. |
+| 1.2.2 | 9.1.2.2 | Captions (Prerecorded) | A | H | Automaatselt saab kontrollida subtiitrifaili (`<track>`) olemasolu. Manuaalselt tuleb hinnata, kas subtiitrid on sünkroonis ja sisaldavad peale kõne ka olulisi heliefekte ning kõnelejate nimesid. |
+| 1.2.3 | 9.1.2.3 | Audio Description or Media Alternative (Prerecorded) | A | H | Automaatselt saab kontrollida kirjelduse märgendite olemasolu. Manuaalselt tuleb veenduda, et kas heliline kirjeldus või täispikk transkriptsioon selgitab kõike visuaalselt olulist, mis helis ei kajastu. |
+| 1.2.4 | 9.1.2.4 | Captions (Live) | AA | H | Automaatselt saab tuvastada videomängija võimekus subtiitreid näidata. Manuaalselt tuleb kontrollida ülekande ajal, kas reaalajas tekkiv tekst on piisavalt täpne, loetava viivitusega ja sisaldab olulist helilist infot. |
+| 1.2.5 | 9.1.2.5 | Audio Description (Prerecorded) | AA | H | Automaatika saab tuvastada täiendava helirea olemasolu. Manuaalselt tuleb hinnata, kas audiokirjeldus on piisavalt detailne ja sisustatud pauside ajal nii, et see ei segaks peamist dialoogi. |
+| 1.3.1 | 9.1.3.1 | Info and Relationships | A | H | Automaatselt saab kontrollida pealkirjade hierarhiat ja vormiväljade seoseid siltidega. Manuaalselt tuleb veenduda, et visuaalne struktuur (nt paks tekst pealkirjana) vastaks semantilisele koodile. |
+| 1.3.2 | 9.1.3.2 | Meaningful Sequence | A | H | Automaatselt saab kontrollida DOM-elementide järjekorda. Manuaalselt tuleb (nt CSS-i väljalülitamisega) veenduda, et sisu on loogiliselt loetav ka ilma kujunduseta. |
+| 1.3.3 | 9.1.3.3 | Sensory Characteristics | A | M | Manuaalselt tuleb üle vaadata kõik juhised, et need ei toetuks ainult visuaalsetele tunnustele nagu kuju, suurus või asukoht (nt "vajuta paremal asuvat nuppu"). |
+| 1.3.4 | 9.1.3.4 | Orientation | AA | H | Automaatselt saab tuvastada koodipõhised vaatepiirangud. Manuaalselt tuleb kontrollida seadet pöörates, et sisu ei lukustuks ühte asendisse ja jääks mõlemas suunas täielikult kasutatavaks. |
+| 1.3.5 | 9.1.3.5 | Identify Input Purpose | AA | H | Automaatselt saab tuvastada puuduvad või valed `autocomplete` atribuudid. Manuaalselt tuleb kontrollida, kas need on lisatud kõikidele asjakohastele sisendväljadele ning kas need vastavad välja tegelikule otstarbele, et toetada automaattäitmist ja abitehnoloogiate kasutamist. |
+| 1.4.1 | 9.1.4.1 | Use of Color | A | M | Automaatselt on võimalik tuvastada värvikasutusega seotud võimalikke probleeme. Manuaalselt tuleb kontrollida, et värv ei oleks ainus viis teabe edastamiseks. |
+| 1.4.2 | 9.1.4.2 | Audio Control | A | H | Automaatselt on võimalik tuvastada automaatselt käivituvat heli. Manuaalselt tuleb kontrollida, kas üle kolme sekundi kestvat heli on võimalik peatada, vaigistada või selle helitugevust reguleerida ilma süsteemi helitugevust muutmata. |
+| 1.4.3 | 9.1.4.3 | Contrast (Minimum) | AA | H | Automaatselt on võimalik mõõta teksti ja tausta vahelist värvikontrasti. Kõigi kasutusolukordade ja visuaalsete esituste vastavuse hindamine eeldab manuaalset kontrolli. |
+| 1.4.4 | 9.1.4.4 | Resize Text | AA | H | Automaatselt on võimalik tuvastada teksti suurendamist piiravaid tehnilisi tegureid. Manuaalselt tuleb kontrollida, kas teksti on võimalik suurendada kuni 200% ilma sisu või funktsionaalsuse kadumiseta. |
+| 1.4.5 | 9.1.4.5 | Images of Text | AA | H | Automaatselt on võimalik tuvastada pildielemente. Manuaalselt tuleb hinnatata, kas pildina esitatud tekstiline info on vajalik või tuleks see esitada tekstina, et tagada parem loetavus ja kohandatavus. |
+| 1.4.10 | 9.1.4.10 | Reflow | AA | H | Automaatselt on võimalik tuvastada paigutusega seotud võimalikke piiranguid. Manuaalselt kontrollitakse, kas sisu kohandub ilma horisontaalse kerimiseta ka väiksematel ekraanisuurustel (nt 320 CSS pikslit). |
+| 1.4.11 | 9.1.4.11 | Non-text Contrast | AA | H | Automaatselt on võimalik mõõta mitte-tekstiliste elementide kontrasti. Manuaalselt tuleb hinnata nende visuaalset eristatavust ning vastavust nõudele (kontrastsuhe vähemalt 3:1). |
+| 1.4.12 | 9.1.4.12 | Text Spacing | AA | H | Automaatselt on võimalik tuvastada tekstivahedega seotud stiilipiiranguid. Manuaalselt tuleb kontrollida, kas sisu jääb loetavaks ja kasutatavaks, kui tekstivahed (nt reavahe, tähevahe) suurenevad vastavalt nõuetele. |
+| 1.4.13 | 9.1.4.13 | Content on Hover or Focus | AA | H | Automaatselt on võimalik tuvastada hover- või fookusolekuga seotud elemente, kuid nende käitumise ja kasutatavuse hindamine eeldab manuaalset kontrolli. |
 
 ## Kasutatavus
 
