@@ -6,7 +6,7 @@ See repositoorium sisaldab lõputöö raames koostatud materjale veebilehtede li
 
 - **WCAG edukriteeriumite hindamismeetodite tabel**  
   Jaotus automaatseks, manuaalseks ja hübriidseks hindamiseks.  
-  [Vaata tabelit](docs/wcag-hindamismeetodid.md)
+  [Vaata tabelit](docs/WCAG-hindamismeetodid.md)
 
 - **Ligipääsetavuse hindamise raamistik**  
   Ühtne lähenemine automaatse ja manuaalse testimise kombineerimiseks.  
