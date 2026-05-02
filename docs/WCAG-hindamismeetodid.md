@@ -8,8 +8,8 @@ Tabelis on WCAG 2.1 A ja AA taseme edukriteeriumid seostatud EN 301 549 nõueteg
 
 | WCAG | EN 301 549 | Nimetus | Tase | Hindamine | Põhjendus |
 |---|---|---|---|---|---|
-| 1.1.1 | 9.1.1.1 | Non-text Content | A | H | Näiteks alt atribuudi olemasolu saab kontrollida automaatselt, aga sisus tuleb hinnata manuaalselt. |
-| 1.2.1 | 9.1.2.1 | Audio-only and Video-only (Prerecorded) | A | H | Automaatselt saab tuvastada struktuurielementide olemasolu, manuaalselt tuleb hinnata sisu kvaliteeti ja tähendust. |
+| 1.1.1 | 9.1.1.1 | Non-text Content | A | H | Automaatselt tuvastatakse puuduvad alt-atribuudid. Manuaalselt kontrollitakse, kas tekst kirjeldab pildi eesmärki (mitte lihtsalt "pilt1.jpg") ja kas dekoratiivsed pildid on märgitud tühja alt-tekstiga (alt=""). |
+| 1.2.1 | 9.1.2.1 | Audio-only and Video-only (Prerecorded) | A | H | Automaatselt leitakse meediaelemendid. Manuaalselt tuleb kontrollida, et helifailil on täpne tekstiline transkriptsioon ja ainult videopõhisel sisul on kirjeldus, mis annab edasi kogu visuaalse info. |
 | 1.2.2 | 9.1.2.2 | Captions (Prerecorded) | A | H | Automaatselt saab tuvastada subtiitrite olemasolu, manuaalselt tuleb hinnata vastavust ja kasutatavust. |
 | 1.2.3 | 9.1.2.3 | Audio Description or Media Alternative (Prerecorded) | A | H | Automaatselt saab tuvastada struktuuri või alternatiivide olemasolu, manuaalselt sisulist vastavust. |
 | 1.2.4 | 9.1.2.4 | Captions (Live) | AA | H | Automaatselt saab tuvastada subtiitrite olemasolu, manuaalselt tuleb hinnata vastavust ja kasutatavust. |
