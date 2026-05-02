@@ -1,0 +1,1 @@
+# Ligipaasetavuse-hindamise-raamistik
