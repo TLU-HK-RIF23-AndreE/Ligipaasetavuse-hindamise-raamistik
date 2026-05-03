@@ -10,7 +10,7 @@ See repositoorium sisaldab lõputöö raames koostatud materjale veebilehtede li
 
 - **Ligipääsetavuse hindamise raamistik**  
   Ühtne lähenemine automaatse ja manuaalse testimise kombineerimiseks.  
-  [Vaata tabelit](docs/raamistik.md)
+  [Vaata tabelit](docs/Raamistik.md)
 
 - **Tööriistade võrdlus**  
   Erinevate ligipääsetavuse testimise tööriistade võimekuse ja piirangute võrdlus.  
