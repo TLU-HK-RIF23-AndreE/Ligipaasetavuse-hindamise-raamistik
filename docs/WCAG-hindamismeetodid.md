@@ -19,7 +19,7 @@ Tabelis on WCAG 2.1 A ja AA taseme edukriteeriumid seostatud EN 301 549 nõueteg
 | 1.3.3 | 9.1.3.3 | Sensory Characteristics | A | M | Manuaalselt tuleb üle vaadata kõik juhised, et need ei toetuks ainult visuaalsetele tunnustele nagu kuju, suurus või asukoht (nt "vajuta paremal asuvat nuppu"). |
 | 1.3.4 | 9.1.3.4 | Orientation | AA | H | Automaatselt saab tuvastada koodipõhised vaatepiirangud. Manuaalselt tuleb kontrollida seadet pöörates, et sisu ei lukustuks ühte asendisse ja jääks mõlemas suunas täielikult kasutatavaks. |
 | 1.3.5 | 9.1.3.5 | Identify Input Purpose | AA | H | Automaatselt saab tuvastada puuduvad või valed `autocomplete` atribuudid. Manuaalselt tuleb kontrollida, kas need on lisatud kõikidele asjakohastele sisendväljadele ning kas need vastavad välja tegelikule otstarbele, et toetada automaattäitmist ja abitehnoloogiate kasutamist. |
-| 1.4.1 | 9.1.4.1 | Use of Color | A | M | Automaatselt on võimalik tuvastada värvikasutusega seotud võimalikke probleeme. Manuaalselt tuleb kontrollida, et värv ei oleks ainus viis teabe edastamiseks. |
+| 1.4.1 | 9.1.4.1 | Use of Color | A | H | Automaatselt on võimalik tuvastada värvikasutusega seotud võimalikke probleeme. Manuaalselt tuleb kontrollida, et värv ei oleks ainus viis teabe edastamiseks. |
 | 1.4.2 | 9.1.4.2 | Audio Control | A | H | Automaatselt on võimalik tuvastada automaatselt käivituvat heli. Manuaalselt tuleb kontrollida, kas üle kolme sekundi kestvat heli on võimalik peatada, vaigistada või selle helitugevust reguleerida ilma süsteemi helitugevust muutmata. |
 | 1.4.3 | 9.1.4.3 | Contrast (Minimum) | AA | H | Automaatselt on võimalik mõõta teksti ja tausta vahelist värvikontrasti. Kõigi kasutusolukordade ja visuaalsete esituste vastavuse hindamine eeldab manuaalset kontrolli. |
 | 1.4.4 | 9.1.4.4 | Resize Text | AA | H | Automaatselt on võimalik tuvastada teksti suurendamist piiravaid tehnilisi tegureid. Manuaalselt tuleb kontrollida, kas teksti on võimalik suurendada kuni 200% ilma sisu või funktsionaalsuse kadumiseta. |
@@ -33,18 +33,18 @@ Tabelis on WCAG 2.1 A ja AA taseme edukriteeriumid seostatud EN 301 549 nõueteg
 
 | WCAG | EN 301 549 | Nimetus | Tase | Hindamine | Põhjendus |
 |---|---|---|---|---|---|
-| 2.1.1 | 9.2.1.1 | Keyboard | A | H | Klaviatuuriga navigeerimise ja funktsionaalsuse toimivuse hindamine eeldab manuaalset kontrolli. |
+| 2.1.1 | 9.2.1.1 | Keyboard | A | H | Automaatselt on võimalik tuvastada klaviatuurikasutusega seotud võimalikke probleeme. Manuaalselt tuleb kontrollida, kas kõik interaktiivsed elemendid ja funktsioonid on kasutatavad ainult klaviatuuri abil. |
 | 2.1.2 | 9.2.1.2 | No Keyboard Trap | A | M | Klaviatuurilõksu olemasolu ja sellest väljumise võimaluse hindamine eeldab manuaalset kontrolli. |
-| 2.1.4 | 9.2.1.4 | Character Key Shortcuts | A | H | Automaatselt saab tuvastada võimalikke kiirklahve, kuid nende konflikti, väljalülitamise või ümbermääramise võimaluse hindamine eeldab manuaalset kontrolli. |
-| 2.2.1 | 9.2.2.1 | Timing Adjustable | A | H | Automaatselt saab tuvastada ajapiirangute olemasolu, kuid nende kohandamise ja kasutatavuse hindamine eeldab manuaalset kontrolli. |
-| 2.2.2 | 9.2.2.2 | Pause, Stop, Hide | A | H | Automaatselt saab tuvastada liikuvat või automaatselt uuenevat sisu, kuid selle peatamise, peatamise toimivuse ja kasutatavuse hindamine eeldab manuaalset kontrolli. |
-| 2.3.1 | 9.2.3.1 | Three Flashes or Below Threshold | A | H | Automaatselt saab tuvastada vilkumise sagedust, kuid selle visuaalse mõju ja kasutaja ohutuse hindamine eeldab manuaalset kontrolli. |
+| 2.1.4 | 9.2.1.4 | Character Key Shortcuts | A | H | Automaatselt on võimalik tuvastada võimalikke ühe märgiga kiirklahve. Manuaalselt tuleb kontrollida, kas neid on võimalik välja lülitada, ümber määrata või kas need toimivad ainult fookuse olemasolul. |
+| 2.2.1 | 9.2.2.1 | Timing Adjustable | A | H | Automaatselt on võimalik tuvastada ajapiirangute olemasolu. Manuaalselt tuleb kontrollida, kas kasutajal on võimalik ajapiirangut pikendada, kohandada või see eemaldada. |
+| 2.2.2 | 9.2.2.2 | Pause, Stop, Hide | A | H | Automaatselt saab tuvastada liikuvat või automaatselt uuenevat sisu. Manuaalselt tuleb kontrollida, kas kasutajal on võimalik selline sisu peatada, katkestada või peita. |
+| 2.3.1 | 9.2.3.1 | Three Flashes or Below Threshold | A | M | Vilkuva sisu olemasolu ja selle mõju kasutajale eeldab manuaalset kontrolli. |
 | 2.4.1 | 9.2.4.1 | Bypass Blocks | A | H | Automaatselt saab tuvastada navigeerimis- ja ankruelementide olemasolu, kuid nende toimivuse ja kasutatavuse hindamine eeldab manuaalset kontrolli. |
 | 2.4.2 | 9.2.4.2 | Page Titled | A | H | Automaatselt saab tuvastada lehe pealkirja olemasolu, kuid selle asjakohasuse ja kirjeldavuse hindamine eeldab manuaalset kontrolli. |
-| 2.4.3 | 9.2.4.3 | Focus Order | A | H | Automaatselt saab tuvastada fookusjärjestuse DOM-is, kuid selle loogilisuse ja kasutatavuse hindamine eeldab manuaalset kontrolli. |
-| 2.4.4 | 9.2.4.4 | Link Purpose (In Context) | A | H | Lingi eesmärgi arusaadavuse hindamine kontekstis eeldab manuaalset kontrolli. |
+| 2.4.3 | 9.2.4.3 | Focus Order | A | H | Automaatselt on võimalik tuvastada elementide järjestus koodis. Manuaalselt tuleb hinnata, kas fookus liigub elementide vahel loogilises ja kasutajale arusaadavas järjekorras. |
+| 2.4.4 | 9.2.4.4 | Link Purpose (In Context) | A | H | Automaatselt on võimalik tuvastada linkide tehnilisi puudusi. Manuaalselt tuleb hinnata, kas lingi eesmärk on koos kontekstiga kasutajale arusaadav. |
 | 2.4.5 | 9.2.4.5 | Multiple Ways | AA | M | Mitme ligipääsutee olemasolu ja nende piisavuse hindamine eeldab manuaalset kontrolli. |
-| 2.4.6 | 9.2.4.6 | Headings and Labels | AA | H | Automaatselt saab tuvastada pealkirjade ja siltide olemasolu, kuid nende kirjeldavuse ja arusaadavuse hindamine eeldab manuaalset kontrolli. |
+| 2.4.6 | 9.2.4.6 | Headings and Labels | AA | H | Automaatselt on võimalik tuvastada pealkirjade ja siltide olemasolu. Nende kirjeldavuse ja arusaadavuse hindamine eeldab manuaalset kontrolli. |
 | 2.4.7 | 9.2.4.7 | Focus Visible | AA | M | Fookuse nähtavuse ja selle piisavuse hindamine eeldab manuaalset kontrolli. |
 | 2.5.1 | 9.2.5.1 | Pointer Gestures | A | M | Keerukate puutežestide kasutamise ja nende alternatiivide hindamine eeldab manuaalset kontrolli. |
 | 2.5.2 | 9.2.5.2 | Pointer Cancellation | A | M | Puutesisendiga toimingute käivitumise ja tühistamise hindamine eeldab manuaalset kontrolli. |
@@ -71,5 +71,5 @@ Tabelis on WCAG 2.1 A ja AA taseme edukriteeriumid seostatud EN 301 549 nõueteg
 | WCAG | EN 301 549 | Nimetus | Tase | Hindamine | Põhjendus |
 |---|---|---|---|---|---|
 | 4.1.1 | 9.4.1.1 | Parsing | A | A | Märgistusvigade ja süntaksi korrektsuse kontroll on automatiseeritav. |
-| 4.1.2 | 9.4.1.2 | Name, Role, Value | A | H | Automaatselt saab tuvastada nime, rolli ja väärtuse olemasolu, kuid nende korrektsuse ja kasutatavuse hindamine eeldab manuaalset kontrolli. |
+| 4.1.2 | 9.4.1.2 | Name, Role, Value | A | H | Automaatselt saab tuvastada elementide nime, rolli ja väärtuse olemasolu, kuid nende korrektsuse ja kasutatavuse hindamine eeldab manuaalset kontrolli. |
 | 4.1.3 | 9.4.1.3 | Status Messages | AA | H | Automaatselt saab tuvastada staatusteavituste märgistuse, kuid nende edastamise ja arusaadavuse hindamine eeldab manuaalset kontrolli. |
