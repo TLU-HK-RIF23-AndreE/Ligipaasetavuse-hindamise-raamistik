@@ -1,10 +1,11 @@
 # WCAG 2.1 ligipääsetavuse hindamise raamistik
 
-Tabel koondab WCAG 2.1 edukriteeriumid, nende lühikirjelduse, soovitusliku hindamismeetodi ning testimise juhise. Meetodi tähised: **A** – automaatne, **M** – manuaalne, **H** – hübriidne.
+Tabel koondab WCAG 2.1 edukriteeriumid, nende lühikirjelduse, soovitusliku hindamismeetodi ning testimise juhised.  
+Meetodi tähised: **A** – automaatne, **M** – manuaalne, **H** – hübriidne.
 
 | WCAG kriteerium | Lühikirjeldus | Meetod | Kuidas testida | Tööriist |
 |---|---|---|---|---|
-| 1.1.1 Mittetekstiline sisu | Piltidel, ikoonidel, graafikutel jms peab olema tekstiline kirjeldus. | H | Tuvasta automaatselt alt-atribuutide olemasolu. Kontrolli manuaalselt alternatiivteksti sisulist sobivust. | WAVE |
+| 1.1.1 Mittetekstiline sisu | Piltidel, ikoonidel, graafikutel jms peab olema tekstiline kirjeldus. | H | **Automaatne:** Tuvasta  `alt`-atribuutide olemasolu ja nende puudumine. **Manuaalne:** Kontrolli, kas alternatiivtekst kirjeldab pildi eesmärki või tähendust ning kas dekoratiivsetel piltidel on märgitud tühi alternatiivtekst (`alt=""`) | WAVE |
 | 1.2.1 Ainult heliline ja ainult videopõhine sisuesitus (eelsalvestatud sisu puhul) | Kasutajad, kes ei kuule või ei näe, peavad kätte saama sama info, mis edastatakse ainult helis või ainult pildis. | H | Kontrolli manuaalselt, kas ainult helilisel sisul on transkriptsioon ning kas see vastab kuuldule. Ainult videopõhise sisu puhul kontrolli, kas on olemas tekstiline kirjeldus või heliline selgitus, mis kirjeldab toimuvat. |  |
 | 1.2.2 Subtiitrid (eelsalvestatud sisu puhul) | Kõigil eelsalvestatud videotel, mis sisaldavad audiot, peavad olema subtiitrid. | H | Kontrolli manuaalselt, kas subtiitrid on täielikud, õiged, ajastatud ning sisaldavad ka olulisi helisid. |  |
 | 1.2.3 Helikirjeldus või alternatiivmeedium (eelsalvestatud sisu puhul) | Eelsalvestatud heliga videote puhul peab olema helikirjeldus või tekstiline alternatiiv, mis edastab olulise visuaalse teabe (nt tegevus), mida helist ei ole võimalik aru saada. | H | Kontrolli manuaalselt, kas oluline visuaalne teave on edasi antud helikirjelduse või tekstilise alternatiivi kaudu. |  |
