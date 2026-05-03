@@ -14,7 +14,7 @@ See repositoorium sisaldab lõputöö raames koostatud materjale veebilehtede li
 
 - **Tööriistade võrdlus**  
   Erinevate ligipääsetavuse testimise tööriistade võimekuse ja piirangute võrdlus.  
-  [Vaata tabelit](docs/tooriistade-vordlus.md)
+  [Vaata tabelit](docs/Tooriistade-vordlus.md)
 
 ## Eesmärk
 
