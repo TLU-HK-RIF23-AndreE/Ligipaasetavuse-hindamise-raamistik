@@ -63,7 +63,7 @@ Tabelis on WCAG 2.1 A ja AA taseme edukriteeriumid seostatud EN 301 549 nõueteg
 | 3.2.4 | 9.3.2.4 | Läbivalt ühtne määratlus | AA | M | Sama funktsiooniga elementide järjepideva tähistuse hindamine eeldab manuaalset kontrolli. |
 | 3.3.1 | 9.3.3.1 | Vea tuvastamine | A | H | Automaatselt saab tuvastada veateadete olemasolu, kuid nende selguse ja arusaadavuse hindamine eeldab manuaalset kontrolli. |
 | 3.3.2 | 9.3.3.2 | Sildid või instruktsioonid | A | H | Automaatselt saab tuvastada siltide ja juhiste olemasolu, kuid nende selguse ja piisavuse hindamine eeldab manuaalset kontrolli. |
-| 3.3.3 | 9.3.3.3 | Soovitus vea korral | AA | H | Veaparanduste pakkumise selguse ja asjakohasuse hindamine eeldab manuaalset kontrolli. |
+| 3.3.3 | 9.3.3.3 | Soovitus vea korral | AA | M | Veaparanduste pakkumise selguse ja asjakohasuse hindamine eeldab manuaalset kontrolli. |
 | 3.3.4 | 9.3.3.4 | Vigade ennetamine (juriidika, rahandus, andmestikud) | AA | M | Vigade ennetamise mehhanismide olemasolu ja toimivuse hindamine eeldab manuaalset kontrolli. |
 
 ## Töökindlus
