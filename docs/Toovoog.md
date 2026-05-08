@@ -1,4 +1,4 @@
-# WCAG 2.1 ligipääsetavuse hindamise raamistik
+# WCAG 2.1 ligipääsetavuse hindamise töövoog
 
 Tabel koondab WCAG 2.1 edukriteeriumid, nende lühikirjelduse, soovitusliku hindamismeetodi ning testimise juhised.  
 Meetodi tähised: `A` – automaatne, `M` – manuaalne, `H` – hübriidne.
