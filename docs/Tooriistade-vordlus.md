@@ -1,10 +1,15 @@
-| WCAG | Kriteerium | Testjuhtumi eesmärk | WAVE | Lighthouse | Silktide Inspector | Accessibility Insights | Peamine tähelepanek | Soovitatav tööriist |
-|---|---|---|---|---|---|---|---|---|
-| 1.1.1 | Mittetekstiline sisu | Alt-teksti olemasolu ja puudumise tuvastamine | Jah | Jah | Jah | Jah | Kõik tööriistad tuvastasid alt-teksti olemasolu või puudumise. Alternatiivteksti sisuline sobivus vajab manuaalset hindamist. | WAVE |
-| 1.3.1 | Teave ja seosed | Vormisiltide, seotud väljade ja tabelistruktuuri kontroll | Jah | Jah | Jah | Jah | Tööriistad tuvastasid mitmeid struktuuriprobleeme, kuid puuduvat tabelipäist ei tuvastatud. | WAVE |
-| 1.3.2 | Tähenduslik järjestus | Lehe struktuuri ja navigeerimisjärjestuse visualiseerimine | Jah | Ei | Jah | Jah | WAVE, Silktide Inspector ja Accessibility Insights aitavad struktuuri visualiseerida, kuid lõplik järjestuse loogilisus vajab manuaalset hindamist. | Accessibility Insights |
-| 1.3.5 | Sisestuse eesmärgi tuvastamine | Autocomplete atribuudi olemasolu või puudumise kontroll | Ei | Ei | Ei | Ei | Ükski tööriist ei tuvastanud autocomplete atribuudi olemasolu ega puudumist. | Puudub |
-| 1.4.3 | Kontrastsus (miinimumnõue) | Teksti ja tausta madala kontrastsuse tuvastamine | Jah | Jah | Jah | Jah | Kõik tööriistad tuvastasid madala kontrastsuse. | WAVE |
-| 1.4.11 | Mittetekstilise sisu kontrastsus | Ikooni ja tausta madala kontrastsuse tuvastamine | Osaliselt | Ei | Ei | Ei | WAVE tuvastas CSS-iga tehtud ikooni madala kontrastsuse, kuid kriteerium vajab siiski manuaalset hindamist. | WAVE |
-| 2.4.4 | Lingi otstarve (kontekstis) | Tühja ja mittesisuka lingiteksti tuvastamine | Osaliselt | Osaliselt | Osaliselt | Osaliselt | Tööriistad tuvastasid tühja või ingliskeelse mittesisuka lingi, kuid eestikeelse „kliki siia” lingi hindamine jäi ebapiisavaks. | WAVE |
-| 2.5.3 | Silt nimes | Nähtava sildi ja aria-label väärtuse võrdlus | Ei | Ei | Ei | Ei | Ükski tööriist ei tuvastanud erinevust automaatselt, kuid WAVE kuvab nähtava sildi ja ligipääsetava nime kõrvuti, mis lihtsustab manuaalset kontrolli. | WAVE |
+# Tööriistade võrdlus
+
+Tabelis võrreldakse valitud ligipääsetavuse hindamise tööriistu WCAG 2.1 A- ja AA-taseme edukriteeriumitega seotud testjuhtude põhjal.
+
+Tähised:
+- **J** – tööriist tuvastas nõuet rikkuva näite.
+- **E** – tööriist ei tuvastanud nõuet rikkuvat näidet.
+- **O** – tööriist tuvastas mõne tehnilise tunnuse, kuid lõplik hindamine vajab manuaalset kontrolli.
+
+| Kriteerium | Testjuhtumi eesmärk | WAVE | Lighthouse | Silktide | Insights | Tähelepanek | Soovitus |
+|---|---|---|---|---|---|---|---|
+| 1.1.1 Mittetekstiline sisu | Alt-teksti olemasolu ja puudumise tuvastamine | J | J | J | J | Kõik tööriistad tuvastasid alt-teksti olemasolu või puudumise. Alternatiivteksti sisuline sobivus vajab manuaalset hindamist. | WAVE |
+| 1.3.1 Teave ja seosed | Vormisiltide, seotud andmeväljade ja tabelistruktuuri kontroll | J | J | J | J | Tööriistad tuvastasid mitu struktuuriprobleemi, kuid puuduvat tabelipäist ei tuvastatud. | WAVE |
+| 1.3.2 Tähenduslik järjestus | Lehe struktuuri ja navigeerimisjärjestuse visualiseerimine | J | E | J | J | WAVE, Silktide ja Insights aitavad struktuuri visualiseerida, kuid järjestuse loogilisus vajab manuaalset hindamist. | Insights |
+| 1.3.5 Sisestuse eesmärgi tuvastamine | `autocomplete` atribuudi olemasolu või puudumise kontroll | E | E | E | E | Ükski tööriist ei tuvastanud `autocomplete` atribuudi olemasolu ega puudumist. | Puudub |
