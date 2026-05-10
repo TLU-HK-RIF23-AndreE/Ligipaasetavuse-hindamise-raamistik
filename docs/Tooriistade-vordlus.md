@@ -1,15 +1,16 @@
-# Tööriistade võrdlus
+## Tööriistade võrdlustabel
 
-Tabelis võrreldakse valitud ligipääsetavuse hindamise tööriistu WCAG 2.1 A- ja AA-taseme edukriteeriumitega seotud testjuhtude põhjal.
+Tabelis on esitatud, millised testitud tööriistad tuvastasid WCAG 2.1 edukriteeriumitega seotud nõuet rikkuvad näited. Linnuke tähistab, et tööriist tuvastas vastava testjuhtumi rikkumise. Tühi lahter tähendab, et tööriist rikkumist ei tuvastanud või ei andnud selle kohta piisavalt selget tulemust.
 
-Tähised:
-- **J** – tööriist tuvastas nõuet rikkuva näite.
-- **E** – tööriist ei tuvastanud nõuet rikkuvat näidet.
-- **O** – tööriist tuvastas mõne tehnilise tunnuse, kuid lõplik hindamine vajab manuaalset kontrolli.
+Tabelis kasutatakse järgmisi tööriistade lühendeid:
 
-| Kriteerium | Testjuhtumi eesmärk | WAVE | Lighthouse | Silktide | Insights | Tähelepanek | Soovitus |
-|---|---|---|---|---|---|---|---|
-| 1.1.1 Mittetekstiline sisu | Alt-teksti olemasolu ja puudumise tuvastamine | J | J | J | J | Kõik tööriistad tuvastasid alt-teksti olemasolu või puudumise. Alternatiivteksti sisuline sobivus vajab manuaalset hindamist. | WAVE |
-| 1.3.1 Teave ja seosed | Vormisiltide, seotud andmeväljade ja tabelistruktuuri kontroll | J | J | J | J | Tööriistad tuvastasid mitu struktuuriprobleemi, kuid puuduvat tabelipäist ei tuvastatud. | WAVE |
-| 1.3.2 Tähenduslik järjestus | Lehe struktuuri ja navigeerimisjärjestuse visualiseerimine | J | E | J | J | WAVE, Silktide ja Insights aitavad struktuuri visualiseerida, kuid järjestuse loogilisus vajab manuaalset hindamist. | Insights |
-| 1.3.5 Sisestuse eesmärgi tuvastamine | `autocomplete` atribuudi olemasolu või puudumise kontroll | E | E | E | E | Ükski tööriist ei tuvastanud `autocomplete` atribuudi olemasolu ega puudumist. | Puudub |
+- **W** – WAVE
+- **LH** – Lighthouse
+- **ST** – Silktide Inspector Extension
+- **AI** – Accessibility Insights for Web
+
+| Kriteerium | W | LH | ST | AI | Tulemuse kirjeldus | Soovitus |
+|---|---|---|---|---|---|---|
+| 1.1.1 Mittetekstiline sisu | ✅ | ✅ | ✅ | ✅ | Kõik tööriistad tuvastasid alt-teksti olemasolu või puudumise. Alternatiivteksti sisuline sobivus vajab manuaalset hindamist. | WAVE |
+| 1.3.5 Sisestuse eesmärgi tuvastamine |  |  |  |  | Ükski tööriist ei tuvastanud `autocomplete` atribuudi olemasolu ega puudumist. | Puudub |
+| 1.4.11 Mittetekstilise sisu kontrastsus | ✅ |  |  |  | WAVE tuvastas CSS-iga tehtud ikooni madala kontrastsuse, kuid kriteerium vajab siiski manuaalset hindamist. | WAVE |
