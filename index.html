@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WCAG 2.1 A ja AA testleht – automaatne ja hübriidne testimine</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1b1b1b;
+      --muted: #555555;
+      --primary: #005fcc;
+      --primary-dark: #003f88;
+      --border: #c7c7c7;
+      --good-bg: #eef8ee;
+      --good-border: #1f7a1f;
+      --bad-bg: #fff1f1;
+      --bad-border: #b42318;
+      --focus: #ffbf47;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    a {
+      color: var(--primary);
+    }
+
+    a:hover {
+      color: var(--primary-dark);
+    }
+
+    a:focus,
+    button:focus,
+    input:focus,
+    select:focus,
+    textarea:focus,
+    summary:focus,
+    [tabindex]:focus,
+    iframe:focus {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -3rem;
+      background: #000;
+      color: #fff;
+      padding: .75rem 1rem;
+      z-index: 1000;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    header,
+    nav,
+    main,
+
+    .media-placeholder {
+      border: 1px solid var(--border);
+      background: #ffffff;
+      padding: 1rem;
+      border-radius: .375rem;
+      max-width: 32rem;
+      min-height: 5rem;
+    }
+
+    .video-placeholder {
+      width: 100%;
+      max-width: 28rem;
+      aspect-ratio: 16 / 9;
+      border: 1px solid #777;
+      background: #eeeeee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+      color: #333333;
+    }
+
+    .caption-box {
+      border: 1px solid var(--border);
+      background: #ffffff;
+      padding: .75rem;
+      border-radius: .375rem;
+      margin-top: .75rem;
+    }
+
+    .color-status-list {
+      list-style: none;
+      padding: 0;
+      margin: .75rem 0 0;
+    }
+
+    .color-status-list li {
+      margin-bottom: .5rem;
+    }
+
+    .status-dot {
+      display: inline-block;
+      width: .9rem;
+      height: .9rem;
+      border-radius: 50%;
+      margin-right: .5rem;
+      vertical-align: middle;
+    }
+
+    .status-dot.ok {
+      background: #1f7a1f;
+    }
+
+    .status-dot.error-dot {
+      background: #b42318;
+    }
+
+    .audio-sim {
+      border: 1px solid var(--border);
+      background: #ffffff;
+      border-radius: .375rem;
+      padding: .75rem;
+      max-width: 30rem;
+    }
+
+    footer {
+      padding: 1rem;
+    }
+
+    header {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #f5f7fa;
+      border: 1px solid var(--border);
+      border-top: 0;
+      border-radius: 0 0 .5rem .5rem;
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a {
+      display: inline-block;
+      padding: .5rem .75rem;
+      border: 1px solid var(--border);
+      border-radius: .375rem;
+      text-decoration: none;
+      background: #fff;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.25;
+    }
+
+    .intro {
+      background: #f9fafb;
+      border: 1px solid var(--border);
+      padding: 1rem;
+      border-radius: .5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .criterion {
+      border: 2px solid var(--border);
+      border-radius: .5rem;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+
+    .criterion summary {
+      cursor: pointer;
+      padding: 1rem;
+      font-weight: bold;
+      background: #f5f7fa;
+    }
+
+    .criterion-content {
+      padding: 1rem;
+    }
+
+    .example-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .example {
+      padding: 1rem;
+      border-radius: .5rem;
+      border: 2px solid;
+    }
+
+    .good {
+      background: var(--good-bg);
+      border-color: var(--good-border);
+    }
+
+    .bad {
+      background: var(--bad-bg);
+      border-color: var(--bad-border);
+    }
+
+    .label {
+      display: inline-block;
+      font-size: .875rem;
+      font-weight: bold;
+      margin-bottom: .5rem;
+      padding: .25rem .5rem;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid currentColor;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .small-note {
+      font-size: .9rem;
+    }
+
+    .sr-only {
+      position: absolute !important;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .good-contrast {
+      background: #003366;
+      color: #fff;
+      padding: .75rem;
+      border-radius: .375rem;
+    }
+
+    .bad-contrast {
+      background: #d9d9d9;
+      color: #a0a0a0;
+      padding: .75rem;
+      border-radius: .375rem;
+    }
+
+    .fake-button {
+      display: inline-block;
+      padding: .7rem 1rem;
+      background: #dfe7f2;
+      border: 1px solid #9aa7b8;
+      border-radius: .375rem;
+    }
+
+    .real-button,
+    button,
+    input[type="submit"] {
+      padding: .7rem 1rem;
+      border: none;
+      border-radius: .375rem;
+      background: var(--primary);
+      color: #fff;
+      cursor: pointer;
+      margin-right: .35rem;
+      margin-bottom: .35rem;
+    }
+
+    .real-button:hover,
+    button:hover,
+    input[type="submit"]:hover {
+      background: var(--primary-dark);
+    }
+
+    .form-row {
+      margin-bottom: 1rem;
+    }
+
+    .form-row label,
+    .stacked-label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: .25rem;
+    }
+
+    .choice-label {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-weight: normal;
+      margin-bottom: .35rem;
+    }
+
+    .choice-label input {
+      width: auto;
+      margin: 0;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      max-width: 28rem;
+      padding: .625rem;
+      border: 1px solid #666;
+      border-radius: .375rem;
+      font: inherit;
+    }
+
+    .hint {
+      font-size: .95rem;
+      color: #333;
+    }
+
+    .error {
+      color: #8b0000;
+      font-weight: bold;
+    }
+
+    .success {
+      color: #0f5f0f;
+      font-weight: bold;
+    }
+
+    .zoom-demo-controls {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-bottom: .75rem;
+    }
+
+    .resize-pass-card {
+      max-width: 32rem;
+      border: 1px solid var(--border);
+      padding: 1rem;
+    }
+
+    .resize-fail-card {
+      width: 16rem;
+      height: 6rem;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      padding: .5rem;
+    }
+
+    .text-200 {
+      font-size: 200%;
+    }
+
+    .reflow-pass {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+      gap: 1rem;
+    }
+
+    .reflow-pass>div,
+    .reflow-fail>div {
+      border: 1px solid var(--border);
+      padding: 1rem;
+      background: #fff;
+    }
+
+    .reflow-fail {
+      display: grid;
+      grid-template-columns: 24rem 24rem 24rem;
+      gap: 1rem;
+      width: max-content;
+    }
+
+    .reflow-viewport {
+      border: 1px dashed #888;
+      padding: 1rem;
+      max-width: 20rem;
+      overflow-x: auto;
+      background: #fafafa;
+    }
+
+    .nontext-good {
+      width: 48px;
+      height: 48px;
+      border: 3px solid #0a58ca;
+      background: #fff;
+      color: #0a58ca;
+      border-radius: .375rem;
+      font-size: 1.4rem;
+    }
+
+    .nontext-bad {
+      width: 48px;
+      height: 48px;
+      border: 1px solid #d0d0d0;
+      background: #f5f5f5;
+      color: #bbbbbb;
+      border-radius: .375rem;
+      font-size: 1.4rem;
+    }
+
+    .spacing-demo {
+      max-width: 35rem;
+      border: 1px solid var(--border);
+      padding: .75rem;
+    }
+
+    .spacing-demo.good-spacing-applied,
+    .spacing-demo.bad-spacing-applied {
+      line-height: 1.5;
+      letter-spacing: .12em;
+      word-spacing: .16em;
+    }
+
+    .spacing-demo.good-spacing-applied p,
+    .spacing-demo.bad-spacing-applied p {
+      margin-bottom: 2em;
+    }
+
+    .spacing-demo-bad {
+      height: 3.2rem;
+      overflow: hidden;
+    }
+
+    .columns-bad {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .columns-bad .visual-first {
+      order: 2;
+      background: #eef5ff;
+      padding: 1rem;
+      flex: 1;
+    }
+
+    .columns-bad .visual-second {
+      order: 1;
+      background: #fff7e8;
+      padding: 1rem;
+      flex: 1;
+    }
+
+    .columns-good {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .columns-good>div {
+      background: #eef5ff;
+      padding: 1rem;
+      flex: 1 1 18rem;
+    }
+
+    .status-region {
+      border: 1px solid var(--border);
+      padding: .75rem;
+      margin-top: .5rem;
+      border-radius: .375rem;
+      background: #fff;
+    }
+
+    .iframe-demo {
+      width: 100%;
+      min-height: 13rem;
+      border: 1px solid #777;
+      background: #fff;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 40rem;
+    }
+
+    th,
+    td {
+      border: 1px solid #777;
+      padding: .5rem;
+      text-align: left;
+    }
+
+    .kbd {
+      font-family: monospace;
+      background: #eee;
+      padding: .1rem .35rem;
+      border-radius: .25rem;
+      border: 1px solid #ccc;
+    }
+
+    .ticker-wrap {
+      border: 1px solid var(--border);
+      overflow: hidden;
+      background: #fff;
+      position: relative;
+      margin-top: .5rem;
+    }
+
+    .ticker-track {
+      display: flex;
+      gap: 2rem;
+      width: max-content;
+      padding: .75rem 1rem;
+      animation: marquee 10s linear infinite;
+    }
+
+    .ticker-wrap.paused .ticker-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-40%);
+      }
+    }
+
+    .countdown-box {
+      border: 1px solid var(--border);
+      padding: 1rem;
+      border-radius: .375rem;
+      background: #fff;
+    }
+
+    .toast {
+      margin-top: .75rem;
+      padding: .75rem;
+      border-radius: .375rem;
+    }
+
+    .toast.good {
+      background: #dff4df;
+      border: 1px solid #3b873b;
+      color: #0f3d0f;
+    }
+
+    .toast.bad {
+      background: #fde3e3;
+      border: 1px solid #b42318;
+      color: #6c1111;
+    }
+
+
+    .media-placeholder {
+      border: 1px solid var(--border);
+      background: #ffffff;
+      padding: 1rem;
+      border-radius: .375rem;
+      max-width: 32rem;
+      min-height: 5rem;
+    }
+
+    .video-placeholder {
+      width: 100%;
+      max-width: 28rem;
+      aspect-ratio: 16 / 9;
+      border: 1px solid #777;
+      background: #eeeeee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+      color: #333333;
+    }
+
+    .caption-box {
+      border: 1px solid var(--border);
+      background: #ffffff;
+      padding: .75rem;
+      border-radius: .375rem;
+      margin-top: .75rem;
+    }
+
+    .color-status-list {
+      list-style: none;
+      padding: 0;
+      margin: .75rem 0 0;
+    }
+
+    .color-status-list li {
+      margin-bottom: .5rem;
+    }
+
+    .status-dot {
+      display: inline-block;
+      width: .9rem;
+      height: .9rem;
+      border-radius: 50%;
+      margin-right: .5rem;
+      vertical-align: middle;
+    }
+
+    .status-dot.ok {
+      background: #1f7a1f;
+    }
+
+    .status-dot.error-dot {
+      background: #b42318;
+    }
+
+    .audio-sim {
+      border: 1px solid var(--border);
+      background: #ffffff;
+      border-radius: .375rem;
+      padding: .75rem;
+      max-width: 30rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: #f5f7fa;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 800px) {
+      .example-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav ul {
+        flex-direction: column;
+      }
+    }
+
+    .bad-name-field {
+      margin-bottom: 1rem;
+    }
+
+    .bad-name-field input {
+      display: block;
+    }
+
+    .icon-example-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: .75rem;
+    }
+
+    .example-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: .75rem;
+    }
+
+    .button-row {
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+    }
+
+    .stacked-label {
+      display: block;
+      font-weight: bold;
+      margin-top: .75rem;
+      margin-bottom: .25rem;
+    }
+
+    .decorative-image {
+      display: block;
+      margin-top: .75rem;
+    }
+
+    .content-image {
+      width: 220px;
+      height: 100px;
+      object-fit: cover;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#pohisisu">Liigu põhisisu juurde</a>
+
+  <header>
+    <h1>WCAG 2.1 A ja AA testleht</h1>
+    <p class="muted">
+      Lehel on alles jäetud peamiselt automaatseks või hübriidseks testimiseks sobivad edukriteeriumid.
+      Manuaalselt testitavaks märgitud kriteeriumid on sellest versioonist eemaldatud.
+    </p>
+    <nav aria-label="Põhinavigatsioon">
+      <ul>
+        <li><a href="#tajutav">Tajutav</a></li>
+        <li><a href="#kasutatav">Kasutatav</a></li>
+        <li><a href="#moistetav">Mõistetav</a></li>
+        <li><a href="#toimiv">Toimiv</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="pohisisu">
+    <section class="intro" aria-labelledby="sissejuhatus-pealkiri">
+      <h2 id="sissejuhatus-pealkiri">Kuidas seda kasutada?</h2>
+      <p>
+        Iga plokk sisaldab head ja halba näidet. Kõik plokid on vaikimisi avatud, et automaatsed tööriistad näeksid
+        võimalikult palju testitavat sisu.
+      </p>
+      <p>
+        Mõne leheülese kriteeriumi puhul on kasutatud <code>iframe</code>-näidet, sest ühel HTML-lehel ei saa korraga
+        olla nii korrektne kui vigane <code>title</code> või <code>lang</code>.
+      </p>
+    </section>
+
+    <section id="tajutav" aria-labelledby="tajutav-pealkiri">
+      <h2 id="tajutav-pealkiri">1. Tajutav</h2>
+
+      <details class="criterion" open>
+        <summary>1.1.1 Non-text Content</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="example-stack">
+                <div class="label">Hea näide</div>
+                <img class="content-image"src="images/raekoda.png" alt="Tartu raekoja plats päikeseloojangu ajal" width="220" height="100">
+              </div>
+              <p>Dekoratiivpildil on tühi alt-atribuut.</p>
+              <img src="images/dekoratiiv.png" alt="" width="120" height="60">
+            </div>
+            <div class="example bad">
+              <div class="example-stack">
+                <div class="label">Halb näide</div>
+                <img class="content-image" src="images/raekoda.png" width="220" height="100">
+              </div>
+              <p class="small-note">Pildil puudub <code>alt</code>-atribuut.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>1.2.1 Audio-only and Video-only (Prerecorded)</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <div class="media-placeholder">
+                <p><strong>Heliklipp:</strong> teenuse lahtiolekuajad.</p>
+                <audio controls aria-label="Heliklipp teenuse lahtiolekuaegadest">
+                  <source src="sample-audio.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+              <div class="caption-box">
+                <strong>Tekstiline alternatiiv:</strong>
+                Teenus on avatud esmaspäevast reedeni kell 09:00–17:00.
+              </div>
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+              <div class="media-placeholder">
+                <p><strong>Heliklipp:</strong> teenuse lahtiolekuajad.</p>
+                <audio controls aria-label="Heliklipp ilma tekstilise alternatiivita">
+                  <source src="sample-audio.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+              <p class="small-note">Eelsalvestatud ainult helina esitatud sisule puudub tekstiline alternatiiv.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>1.2.2 Captions (Prerecorded)</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <video controls width="420" aria-label="Eelsalvestatud video subtiitritega">
+                <source src="sample-video.mp4" type="video/mp4">
+                <track kind="captions" src="captions-et.vtt" srclang="et" label="Eesti subtiitrid" default>
+              </video>
+              <p class="small-note">Eelsalvestatud videol on subtiitrite <code>track</code>-element.</p>
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+              <video controls width="420" aria-label="Eelsalvestatud video ilma subtiitriteta">
+                <source src="sample-video.mp4" type="video/mp4">
+              </video>
+              <p class="small-note">Eelsalvestatud videol puudub subtiitrite <code>track</code>-element.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>1.2.3 Audio Description or Media Alternative (Prerecorded)</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <div class="video-placeholder">
+                Video: kasutaja täidab vormi ja vajutab nuppu “Saada”
+              </div>
+              <div class="caption-box">
+                <strong>Meedia alternatiiv:</strong>
+                Videos kuvatakse, kuidas kasutaja sisestab vormi oma nime ja e-posti aadressi ning vajutab nuppu
+                “Saada”.
+              </div>
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+              <div class="video-placeholder">
+                Video: ainult visuaalselt mõistetav tegevus
+              </div>
+              <p class="small-note">Oluline visuaalne tegevus ei ole kirjeldatud audiokirjelduse ega tekstilise
+                alternatiivina.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>1.2.4 Captions (Live)</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <div class="video-placeholder">
+                Otseülekanne: infotund
+              </div>
+              <div class="caption-box" aria-label="Otseülekande subtiitrid">
+                <strong>Otse-subtiitrid:</strong> Tere tulemast infotundi. Täna räägime teenuse kasutamisest.
+              </div>
+              <p class="small-note">Otseülekande heliline sisu on esitatud ka subtiitritena.</p>
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+              <div class="video-placeholder">
+                Otseülekanne: infotund
+              </div>
+              <p class="small-note">Otseülekandel puuduvad subtiitrid.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>1.2.5 Audio Description (Prerecorded)</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <video controls width="420" aria-label="Eelsalvestatud video audiokirjeldusega">
+                <source src="sample-video.mp4" type="video/mp4">
+                <track kind="descriptions" src="descriptions-et.vtt" srclang="et" label="Eesti audiokirjeldus">
+              </video>
+              <p class="small-note">Videol on audiokirjelduse <code>track</code>-element olulise visuaalse info
+                kirjeldamiseks.</p>
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+              <video controls width="420" aria-label="Eelsalvestatud video ilma audiokirjelduseta">
+                <source src="sample-video.mp4" type="video/mp4">
+              </video>
+              <p class="small-note">Oluline visuaalne info ei ole esitatud audiokirjeldusena.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>1.3.1 Info and Relationships</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <form>
+                <div class="form-row">
+                  <label for="nimi">Nimi</label>
+                  <input id="nimi" name="nimi" type="text">
+                </div>
+                <fieldset>
+                  <legend>Eelistatud kontaktiviis</legend>
+
+                  <label class="choice-label">
+                    <input type="radio" name="kontakt" value="epost">
+                    <span>E-post</span>
+                  </label>
+
+                  <label class="choice-label">
+                    <input type="radio" name="kontakt" value="telefon">
+                    <span>Telefon</span>
+                  </label>
+                </fieldset>
+              </form>
+
+              <table>
+                <caption>Lahtiolekuajad</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Päev</th>
+                    <th scope="col">Aeg</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Esmaspäev</th>
+                    <td>09:00–17:00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+
+              <div class="bad-name-field">
+                <div><strong>Nimi</strong></div>
+                <input type="text">
+              </div>
+
+              <table role="presentation">
+                <tr>
+                  <td>Päev</td>
+                  <td>Aeg</td>
+                </tr>
+                <tr>
+                  <td>Esmaspäev</td>
+                  <td>09:00–17:00</td>
+                </tr>
+              </table>
+
+              <p class="small-note">
+                Silt, väljarühma seos ja tabeli päised puuduvad või on semantika eemaldatud.
+              </p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>1.3.2 Meaningful Sequence</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <div class="columns-good">
+                <div>
+                  <h3>1. Samm</h3>
+                  <p>Vali teenus.</p>
+                </div>
+                <div>
+                  <h3>2. Samm</h3>
+                  <p>Sisesta andmed.</p>
+                </div>
+              </div>
+              <p class="small-note">Visuaalne järjekord ja DOM-i järjekord kattuvad.</p>
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+              <div class="columns-bad">
+                <div class="visual-first">
+                  <h3>2. Samm</h3>
+                  <p>HTML-is esimene, aga visuaalselt teine.</p>
+                </div>
+                <div class="visual-second">
+                  <h3>1. Samm</h3>
+                  <p>HTML-is teine, aga visuaalselt esimene.</p>
+                </div>
+              </div>
+              <p class="small-note">
+                CSS <code>order</code> muudab nähtavat järjekorda, kuid ekraaniluger loeb DOM-i järjekorras.
+              </p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+
+      <details class="criterion" open>
+        <summary>1.3.5 Identify Input Purpose</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+
+              <label class="stacked-label" for="given-name">Eesnimi</label>
+              <input id="given-name" name="given-name" type="text" autocomplete="given-name">
+
+              <label class="stacked-label" for="family-name">Perekonnanimi</label>
+              <input id="family-name" name="family-name" type="text" autocomplete="family-name">
+
+              <label class="stacked-label" for="email-autocomplete">E-posti aadress</label>
+              <input id="email-autocomplete" name="email" type="email" autocomplete="email">
+
+              <p class="small-note">Sisendite eesmärk on programmiliselt määratav sobivate
+                <code>autocomplete</code>-atribuutide abil.
+              </p>
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+
+              <label class="stacked-label" for="field1">Eesnimi</label>
+              <input id="field1" name="field1" type="text">
+
+              <label class="stacked-label" for="field2">Perekonnanimi</label>
+              <input id="field2" name="field2" type="text">
+
+              <label class="stacked-label" for="field3">E-posti aadress</label>
+              <input id="field3" name="field3" type="email">
+
+              <p class="small-note">Väljade eesmärk on nähtav, kuid programmiliselt pole sobivate
+                <code>autocomplete</code>-väärtustega määratud.
+              </p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+
+      <details class="criterion" open>
+        <summary>1.4.1 Use of Color</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <p>Olekut ei näidata ainult värviga, vaid ka teksti ja ikooniga.</p>
+              <ul class="color-status-list">
+                <li><span class="status-dot ok" aria-hidden="true"></span><strong>✓ Kinnitatud:</strong> taotlus on
+                  vastu võetud.</li>
+                <li><span class="status-dot error-dot" aria-hidden="true"></span><strong>✕ Viga:</strong> taotluses on
+                  parandamist vajav väli.</li>
+              </ul>
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+              <p>Olekut eristatakse ainult värviga.</p>
+              <ul class="color-status-list">
+                <li><span class="status-dot ok" aria-hidden="true"></span>Taotlus nr 1</li>
+                <li><span class="status-dot error-dot" aria-hidden="true"></span>Taotlus nr 2</li>
+              </ul>
+              <p class="small-note">Ilma värvieristuseta ei ole selge, kumb taotlus on korras ja kumb veaga.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>1.4.2 Audio Control</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <div class="audio-sim">
+                <p><strong>Taustheli:</strong> kasutaja saab heli käivitada, peatada ja vaigistada.</p>
+                <audio controls aria-label="Juhitav taustheli">
+                  <source src="background-audio.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+              <div class="audio-sim">
+                <p><strong>Taustheli:</strong> heli käivitub automaatselt ja juhtnuppe ei kuvata.</p>
+                <audio autoplay loop aria-label="Automaatselt käivituv taustheli ilma juhtnuppudeta">
+                  <source src="background-audio.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+              <p class="small-note">Kui heli kestab üle kolme sekundi, peab kasutajal olema võimalus see peatada,
+                vaigistada või helitugevust muuta.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>1.4.3 Kontrastsus (miinimumnõue)</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <p class="good-contrast">Selle teksti kontrastsus on piisav.</p>
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+              <p class="bad-contrast">Selle teksti kontrastsus on liiga nõrk.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>1.4.4 Resize Text</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <p class="small-note">Nupp suurendab ainult teksti 200%, mitte kogu plokki transformiga.</p>
+              <button type="button" data-toggle-class="text-200" data-target="resize-good-panel">Lülita 200%
+                tekst</button>
+              <div class="resize-pass-card" id="resize-good-panel">
+                <h3>Paindlik tekstiplokk</h3>
+                <p>See plokk võib kasvada kõrgusesse. Kui tekst suureneb, ei lõigata sisu ära.</p>
+                <button type="button">Jätka</button>
+              </div>
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+              <p class="small-note">Fikseeritud kõrgus ja <code>overflow: hidden</code> lõikavad suurendatud teksti ära.
+              </p>
+              <button type="button" data-toggle-class="text-200" data-target="resize-bad-panel">Lülita 200%
+                tekst</button>
+              <div class="resize-fail-card" id="resize-bad-panel">
+                <h3>Piiratud plokk</h3>
+                <p>Kui tekst suureneb, siis osa sisust kaob kasti sisse ära ning kasutaja ei pruugi kogu sisu näha.</p>
+                <button type="button">Jätka</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>1.4.5 Images of Text</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <h3>Erihind ainult täna</h3>
+              <p>Tekst on päris tekstina, seega seda saab suurendada ja kohandada.</p>
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+              <img
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='90'%3E%3Crect width='420' height='90' fill='%23cce0ff'/%3E%3Ctext x='30' y='55' font-family='Arial' font-size='28' font-weight='700' fill='%23003366'%3EERIHIND AINULT T%C3%84NA%3C/text%3E%3C/svg%3E"
+                alt="Erihind ainult täna" width="420" height="90">
+              <p class="small-note">
+                Tekst on pildi sees. Alt-tekst aitab mõista sisu, kuid tekst ise ei ole kasutaja jaoks päris tekstina
+                kohandatav.
+              </p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>1.4.10 Reflow</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <p class="small-note">Kitsas vaateaken: kaardid liiguvad üksteise alla.</p>
+              <div class="reflow-viewport">
+                <div class="reflow-pass">
+                  <div>
+                    <h3>Plokk A</h3>
+                    <p>Sisu kohandub.</p>
+                  </div>
+                  <div>
+                    <h3>Plokk B</h3>
+                    <p>Sisu kohandub.</p>
+                  </div>
+                  <div>
+                    <h3>Plokk C</h3>
+                    <p>Sisu kohandub.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+              <p class="small-note">Kitsas vaateaken: fikseeritud laiusega plokid tekitavad horisontaalse kerimise.</p>
+              <div class="reflow-viewport">
+                <div class="reflow-fail">
+                  <div>
+                    <h3>Plokk A</h3>
+                    <p>Sisu ei mahu.</p>
+                  </div>
+                  <div>
+                    <h3>Plokk B</h3>
+                    <p>Sisu ei mahu.</p>
+                  </div>
+                  <div>
+                    <h3>Plokk C</h3>
+                    <p>Sisu ei mahu.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>1.4.11 Non-text Contrast</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="icon-example-stack">
+                <div class="label">Hea näide</div>
+                <button type="button" class="nontext-good" aria-label="Kinnita valik">✓</button>
+              </div>
+              <p>Juhtnupu piir, ikoon ja taust eristuvad piisavalt.</p>
+            </div>
+            <div class="example bad">
+              <div class="icon-example-stack">
+                <div class="label">Halb näide</div>
+                <button type="button" class="nontext-bad" aria-label="Kinnita valik">✓</button>
+              </div>
+              <p>Juhtnupu piir ja ikoon ei eristu taustast piisavalt.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>1.4.12 Text Spacing</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="example-stack">
+                <div class="label">Hea näide</div>
+                <button type="button" data-toggle-class="good-spacing-applied" data-target="spacing-good">
+                  Rakenda suuremad tekstivahed
+                </button>
+              </div>
+
+              <div class="spacing-demo" id="spacing-good">
+                <p>Tekst jääb loetavaks ka siis, kui reavahe, sõnavahe ja tähevahe suurenevad.</p>
+              </div>
+            </div>
+            <div class="example bad">
+              <div class="example-stack">
+                <div class="label">Halb näide</div>
+                <button type="button" data-toggle-class="bad-spacing-applied" data-target="spacing-bad">
+                  Rakenda suuremad tekstivahed
+                </button>
+              </div>
+
+              <div class="spacing-demo spacing-demo-bad" id="spacing-bad">
+                <p>Kui tekstivahed suurenevad, võib see fikseeritud kõrguse tõttu lõikuda või kattuda.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section id="kasutatav" aria-labelledby="kasutatav-pealkiri">
+      <h2 id="kasutatav-pealkiri">2. Kasutatav</h2>
+
+      <details class="criterion" open>
+        <summary>2.1.1 Keyboard</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="example-stack">
+                <div class="label">Hea näide</div>
+                <button type="button">Klaviatuuriga kasutatav nupp</button>
+                <a href="#footer-info">Liigu jalusesse</a>
+              </div>
+            </div>
+            <div class="example bad">
+              <div class="example-stack">
+                <div class="label">Halb näide</div>
+                <div class="fake-button" onclick="alert('Ainult hiireklõps töötab')">Kliki hiirega</div>
+              </div>
+
+              <p class="small-note">
+                See näeb välja nagu nupp, kuid <code>div</code> ei ole vaikimisi klaviatuuriga kasutatav.
+              </p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>2.1.4 Character Key Shortcuts</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <p>Kasuta <span class="kbd">Alt</span> + <span class="kbd">S</span>. Üksiku tähe vajutus ei tee midagi.
+              </p>
+              <button type="button" id="good-shortcut-toggle" aria-pressed="true">Lülita Alt+S funktsioon
+                sisse/välja</button>
+              <div id="good-shortcut-status" class="status-region" aria-live="polite">Kiirklahv on sisse lülitatud.
+              </div>
+            </div>
+            <div class="example bad" id="bad-shortcut-demo" tabindex="0">
+              <div class="label">Halb näide</div>
+              <p>
+                Kui see kast on fookuses, käivitab üksiku tähe <span class="kbd">s</span> vajutamine tegevuse.
+              </p>
+              <div id="bad-shortcut-status" class="status-region" aria-live="polite">
+                Liigu siia TAB-klahviga ja vajuta tähte s.
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>2.2.1 Timing Adjustable</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <p>Teade aegub, kuid kasutaja saab aega pikendada või ajalimiidi välja lülitada.</p>
+              <div class="countdown-box">
+                <button type="button" id="good-time-start">Käivita 8 sekundi teade</button>
+                <button type="button" id="good-time-extend">Pikenda 20 sekundini</button>
+                <button type="button" id="good-time-disable">Lülita ajalimiit välja</button>
+                <div id="good-time-status" class="status-region" aria-live="polite">Ajalimiit pole käivitatud.</div>
+                <div id="good-time-toast"></div>
+              </div>
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+              <p>Teade kaob kindla aja möödudes ja kasutaja ei saa seda peatada, pikendada ega välja lülitada.</p>
+              <div class="countdown-box">
+                <button type="button" id="bad-time-start">Käivita 8 sekundi teade</button>
+                <div id="bad-time-status" class="status-region" aria-live="polite">Ajalimiit pole käivitatud.</div>
+                <div id="bad-time-toast"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>2.2.2 Pause, Stop, Hide</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <p>Liikuv tekst käivitub automaatselt, kuid kasutaja saab selle peatada ja uuesti käivitada.</p>
+              <button type="button" id="pause-ticker">Peata</button>
+              <div class="ticker-wrap" id="ticker-good">
+                <div class="ticker-track">
+                  <span>Uudis 1</span><span>Uudis 2</span><span>Uudis 3</span><span>Uudis 4</span><span>Uudis 5</span>
+                  <span>Uudis 1</span><span>Uudis 2</span>
+                </div>
+              </div>
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+              <p>Liikuv tekst käivitub automaatselt ja kasutaja ei saa seda peatada.</p>
+              <div class="ticker-wrap">
+                <div class="ticker-track">
+                  <span>Uudis A</span><span>Uudis B</span><span>Uudis C</span><span>Uudis D</span><span>Uudis E</span>
+                  <span>Uudis A</span><span>Uudis B</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>2.4.1 Bypass Blocks</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <p>Lehe alguses on “Liigu põhisisu juurde” link ja põhisisu on märgitud <code>main</code>-elemendiga.</p>
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+              <iframe class="iframe-demo" title="Halb näide: korduv navigatsioon ilma põhisisu lingita"
+                srcdoc="<!doctype html><html lang='et'><head><title>Teenuse leht</title><style>body{font-family:Arial;margin:0}nav,main{padding:12px}a{display:block;margin-bottom:6px}</style></head><body><nav><a href='#'>Menüü 1</a><a href='#'>Menüü 2</a><a href='#'>Menüü 3</a><a href='#'>Menüü 4</a><a href='#'>Menüü 5</a><a href='#'>Menüü 6</a></nav><main><h1>Põhisisu</h1><p>Selle minilehe alguses puudub skip-link või muu möödapääs korduvast navigatsioonist.</p></main></body></html>">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>2.4.2 Page Titled</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <iframe class="iframe-demo" title="Hea näide: kirjeldava pealkirjaga minileht"
+                srcdoc="<!doctype html><html lang='et'><head><title>Teenuse tingimused – näidisleht</title></head><body><h1>Teenuse tingimused</h1><p>Lehel on kirjeldav title-element.</p></body></html>">
+              </iframe>
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+              <iframe class="iframe-demo" title="Halb näide: puuduva pealkirjaga minileht"
+                srcdoc="<!doctype html><html lang='et'><head><title></title></head><body><h1>Teenuse tingimused</h1><p>Title-element on tühi.</p></body></html>">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>2.4.3 Focus Order</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="example-stack">
+                <div class="label">Hea näide</div>
+
+                <div class="button-row">
+                  <button type="button">Esimene</button>
+                  <button type="button">Teine</button>
+                  <button type="button">Kolmas</button>
+                </div>
+              </div>
+
+              <p class="small-note">Fookus liigub loogilises järjekorras.</p>
+            </div>
+            <div class="example bad">
+              <div class="example-stack">
+                <div class="label">Halb näide</div>
+
+                <div class="button-row">
+                  <button type="button" tabindex="3">Esimene</button>
+                  <button type="button" tabindex="1">Teine</button>
+                  <button type="button" tabindex="2">Kolmas</button>
+                </div>
+              </div>
+
+              <p class="small-note">
+                Positiivse <code>tabindex</code>-i tõttu on fookuse järjekord segane.
+              </p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>2.4.4 Link Purpose (In Context)</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <p><a href="#tingimused">Loe teenuse tingimusi</a></p>
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+              <p><a href="#tingimused">Klõpsa siia</a></p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>2.4.6 Headings and Labels</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <h3>Konto seadistused</h3>
+              <label for="epost">E-posti aadress</label>
+              <input id="epost" type="email">
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+              <h3>Info</h3>
+              <label for="x1">Sisesta</label>
+              <input id="x1" type="text">
+              <p class="small-note">Pealkiri ja silt on liiga üldised.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>2.5.3 Label in Name</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="example-stack">
+                <div class="label">Hea näide</div>
+                <button type="button" aria-label="Otsi">Otsi</button>
+              </div>
+            </div>
+            <div class="example bad">
+              <div class="example-stack">
+                <div class="label">Halb näide</div>
+                <button type="button" aria-label="Käivita päring">Otsi</button>
+              </div>
+
+              <p class="small-note">
+                Visuaalne silt “Otsi” ei sisaldu ligipääsetavas nimes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section id="moistetav" aria-labelledby="moistetav-pealkiri">
+      <h2 id="moistetav-pealkiri">3. Mõistetav</h2>
+
+      <details class="criterion" open>
+        <summary>3.1.1 Language of Page</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <iframe class="iframe-demo" title="Hea näide: määratud lehekeelega minileht"
+                srcdoc="<!doctype html><html lang='et'><head><title>Kontakt</title></head><body><h1>Kontakt</h1><p>HTML-elemendil on lang='et'.</p></body></html>">
+              </iframe>
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+              <iframe class="iframe-demo" title="Halb näide: puuduva lehekeelega minileht"
+                srcdoc="<!doctype html><html><head><title>Kontakt</title></head><body><h1>Kontakt</h1><p>HTML-elemendil puudub lang-atribuut.</p></body></html>">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>3.1.2 Language of Parts</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <p>Eestikeelses tekstis võib olla võõrkeelne osa: <span lang="en">Terms and Conditions</span>.</p>
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+              <p>Eestikeelses tekstis on ingliskeelne osa märgenduseta: Terms and Conditions.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>3.3.1 Error Identification</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <form novalidate>
+                <label for="epost2"><strong>E-posti aadress</strong></label>
+                <input id="epost2" type="email" aria-invalid="true" aria-describedby="epost2-viga">
+                <p id="epost2-viga" class="error">Viga: sisesta e-posti aadress kujul nimi@domeen.ee</p>
+              </form>
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+
+              <label class="stacked-label" for="bad-email">E-posti aadress</label>
+              <input id="bad-email" type="email" aria-invalid="true">
+
+              <p class="error">Vale</p>
+              <p class="small-note">Viga on tähistatud, kuid kasutajale ei selgitata, mis on valesti.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>3.3.2 Labels or Instructions</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+
+              <label class="stacked-label" for="isikukood">Isikukood</label>
+              <input id="isikukood" type="text" aria-describedby="isikukood-juhis">
+
+              <p id="isikukood-juhis" class="hint">Sisesta 11 numbrit ilma tühikuteta.</p>
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+              <input type="text" placeholder="Isikukood">
+              <p class="small-note">Püsiv silt ja juhis puuduvad; ainult placeholder ei ole piisav.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section id="toimiv" aria-labelledby="toimiv-pealkiri">
+      <h2 id="toimiv-pealkiri">4. Toimiv</h2>
+
+      <details class="criterion" open>
+        <summary>4.1.1 Parsing</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="label">Hea näide</div>
+              <p>Unikaalsed ID-d ja korrektselt seostatud sildid.</p>
+              <div>
+                <label for="telefon">Telefon</label>
+                <input id="telefon">
+              </div>
+              <div>
+                <label for="aadress">Aadress</label>
+                <input id="aadress">
+              </div>
+            </div>
+            <div class="example bad">
+              <div class="label">Halb näide</div>
+              <p>Siin on tegelik topelt-ID probleem DOM-is.</p>
+              <label for="kontakt">Kontakt</label>
+              <input id="kontakt">
+              <input id="kontakt">
+              <p class="small-note">
+                Katkist pesastust ei ole siia lisatud, sest brauser parandab selle sageli automaatselt. Topelt-ID on
+                siiski masinloetav probleem.
+              </p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>4.1.2 Name, Role, Value</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="example-stack">
+                <div class="label">Hea näide</div>
+                <button type="button" id="favorite-good" aria-pressed="false" aria-label="Lisa lemmikutesse">
+                  ☆ Lisa lemmikutesse
+                </button>
+              </div>
+
+              <p class="small-note">
+                Nimi, roll ja olek on programmiliselt määratavad ning olek muutub vajutamisel.
+              </p>
+            </div>
+            <div class="example bad">
+              <div class="example-stack">
+                <div class="label">Halb näide</div>
+                <div id="favorite-bad" class="fake-button" onclick="toggleBadFavorite()">★</div>
+              </div>
+
+              <p class="small-note">
+                Visuaalselt näeb see välja nagu nupp, aga semantiline roll, ligipääsetav nimi ja olek puuduvad.
+              </p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="criterion" open>
+        <summary>4.1.3 Status Messages</summary>
+        <div class="criterion-content">
+          <div class="example-grid">
+            <div class="example good">
+              <div class="example-stack">
+                <div class="label">Hea näide</div>
+                <button type="button"
+                  onclick="document.getElementById('status-good').textContent='Andmed salvestati edukalt.'">
+                  Salvesta
+                </button>
+              </div>
+
+              <div id="status-good" class="status-region" aria-live="polite"></div>
+            </div>
+            <div class="example bad">
+              <div class="example-stack">
+                <div class="label">Halb näide</div>
+                <button type="button"
+                  onclick="document.getElementById('status-bad').textContent='Andmed salvestati edukalt.'">
+                  Salvesta
+                </button>
+              </div>
+
+              <div id="status-bad" class="status-region"></div>
+              <p class="small-note">
+                Teade ilmub, kuid ekraanilugerile ei anta sellest automaatselt teada.
+              </p>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer id="footer-info">
+    <p>Demoleht WCAG 2.1 A ja AA automaatseks ja hübriidseks testimiseks</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('[data-toggle-class]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const target = document.getElementById(button.getAttribute('data-target'));
+        const className = button.getAttribute('data-toggle-class');
+        target.classList.toggle(className);
+      });
+    });
+
+    let goodShortcutEnabled = true;
+    const goodShortcutStatus = document.getElementById('good-shortcut-status');
+    const goodShortcutToggle = document.getElementById('good-shortcut-toggle');
+
+    goodShortcutToggle.addEventListener('click', () => {
+      goodShortcutEnabled = !goodShortcutEnabled;
+      goodShortcutToggle.setAttribute('aria-pressed', String(goodShortcutEnabled));
+      goodShortcutStatus.textContent = goodShortcutEnabled
+        ? 'Kiirklahv on sisse lülitatud.'
+        : 'Kiirklahv on välja lülitatud.';
+    });
+
+    document.addEventListener('keydown', (event) => {
+      const tag = document.activeElement ? document.activeElement.tagName : '';
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+
+      if (goodShortcutEnabled && event.altKey && event.key.toLowerCase() === 's') {
+        event.preventDefault();
+        goodShortcutStatus.textContent = 'Alt+S käivitas tegevuse.';
+      }
+    });
+
+    const badShortcutDemo = document.getElementById('bad-shortcut-demo');
+    const badShortcutStatus = document.getElementById('bad-shortcut-status');
+
+    badShortcutDemo.addEventListener('keydown', (event) => {
+      if (!event.altKey && !event.ctrlKey && !event.metaKey && event.key.toLowerCase() === 's') {
+        badShortcutStatus.textContent = 'Üksiku tähe "s" vajutus käivitas tegevuse.';
+      }
+    });
+
+    const tickerGood = document.getElementById('ticker-good');
+    const pauseTickerButton = document.getElementById('pause-ticker');
+
+    pauseTickerButton.addEventListener('click', () => {
+      const paused = tickerGood.classList.toggle('paused');
+      pauseTickerButton.textContent = paused ? 'Jätka' : 'Peata';
+    });
+
+    function makeTimer(config) {
+      let remaining = 0;
+      let interval = null;
+      let timeoutOff = false;
+      const status = document.getElementById(config.statusId);
+      const toastHost = document.getElementById(config.toastId);
+
+      function clearAll() {
+        if (interval) window.clearInterval(interval);
+        interval = null;
+      }
+
+      function render() {
+        if (timeoutOff) {
+          status.textContent = 'Ajalimiit on välja lülitatud.';
+          toastHost.innerHTML = '<div class="toast good">Teade jääb avatuks, kuni kasutaja selle sulgeb.</div>';
+          return;
+        }
+
+        status.textContent = 'Alles on ' + remaining + ' sekundit.';
+        toastHost.innerHTML = '<div class="toast ' + (config.good ? 'good' : 'bad') + '">See teade kaob, kui aeg saab otsa.</div>';
+      }
+
+      function tick() {
+        if (timeoutOff) return;
+        remaining -= 1;
+
+        if (remaining <= 0) {
+          clearAll();
+          status.textContent = 'Aeg sai otsa.';
+          toastHost.innerHTML = '';
+        } else {
+          render();
+        }
+      }
+
+      document.getElementById(config.startId).addEventListener('click', () => {
+        timeoutOff = false;
+        remaining = 8;
+        clearAll();
+        render();
+        interval = window.setInterval(tick, 1000);
+      });
+
+      if (config.extendId) {
+        document.getElementById(config.extendId).addEventListener('click', () => {
+          if (interval) {
+            remaining = 20;
+            render();
+          }
+        });
+      }
+
+      if (config.disableId) {
+        document.getElementById(config.disableId).addEventListener('click', () => {
+          timeoutOff = true;
+          clearAll();
+          render();
+        });
+      }
+    }
+
+    makeTimer({
+      good: true,
+      startId: 'good-time-start',
+      extendId: 'good-time-extend',
+      disableId: 'good-time-disable',
+      statusId: 'good-time-status',
+      toastId: 'good-time-toast'
+    });
+
+    makeTimer({
+      good: false,
+      startId: 'bad-time-start',
+      statusId: 'bad-time-status',
+      toastId: 'bad-time-toast'
+    });
+
+    document.getElementById('favorite-good').addEventListener('click', () => {
+      const button = document.getElementById('favorite-good');
+      const pressed = button.getAttribute('aria-pressed') === 'true';
+
+      button.setAttribute('aria-pressed', String(!pressed));
+      button.textContent = pressed ? '☆ Lisa lemmikutesse' : '★ Eemalda lemmikutest';
+      button.setAttribute('aria-label', pressed ? 'Lisa lemmikutesse' : 'Eemalda lemmikutest');
+    });
+
+    function toggleBadFavorite() {
+      const el = document.getElementById('favorite-bad');
+      el.textContent = el.textContent.trim() === '★' ? '☆' : '★';
+    }
+  </script>
+</body>
+
+</html>
