@@ -35,7 +35,7 @@ Tabelis on WCAG 2.1 A ja AA taseme edukriteeriumid seostatud EN 301 549 nõueteg
 |---|---|---|---|---|---|
 | 2.1.1 | 9.2.1.1 | Klaviatuur | A | H | Automaatselt on võimalik tuvastada klaviatuurikasutusega seotud võimalikke probleeme. Manuaalselt tuleb kontrollida, kas kõik interaktiivsed elemendid ja funktsioonid on kasutatavad ainult klaviatuuri abil. |
 | 2.1.2 | 9.2.1.2 | Klaviatuurilõksu puudumine | A | M | Klaviatuurilõksu olemasolu ja sellest väljumise võimaluse hindamine eeldab manuaalset kontrolli. |
-| 2.1.4 | 9.2.1.4 | Märgipõhised kiirklahvid | A | H | Automaatselt on võimalik tuvastada võimalikke ühe märgiga kiirklahve. Manuaalselt tuleb kontrollida, kas neid on võimalik välja lülitada, ümber määrata või kas need toimivad ainult fookuse olemasolul. |
+| 2.1.4 | 9.2.1.4 | Märgipõhised kiirklahvid | A | M | Manuaalselt tuleb kontrollida, kas neid on võimalik välja lülitada, ümber määrata või kas need toimivad ainult fookuse olemasolul. |
 | 2.2.1 | 9.2.2.1 | Ajalimiidi muudetavus | A | H | Automaatselt on võimalik tuvastada ajapiirangute olemasolu. Manuaalselt tuleb kontrollida, kas kasutajal on võimalik ajapiirangut pikendada, kohandada või see eemaldada. |
 | 2.2.2 | 9.2.2.2 | Ajutine katkestamine, peatamine, peitmine | A | H | Automaatselt saab tuvastada liikuvat või automaatselt uuenevat sisu. Manuaalselt tuleb kontrollida, kas kasutajal on võimalik selline sisu peatada, katkestada või peita. |
 | 2.3.1 | 9.2.3.1 | Kolm välgatust või kolm sähvatust või ohutu vilkumine | A | M | Vilkuva sisu olemasolu ja selle mõju kasutajale eeldab manuaalset kontrolli. |
