@@ -1,4 +1,4 @@
-# Ligipääsetavuse hindamise raamistik
+# Ligipääsetavuse hindamise töövoog
 
 See repositoorium sisaldab lõputöö raames koostatud materjale veebilehtede ligipääsetavuse hindamiseks vastavalt WCAG 2.1 nõuetele.
 
