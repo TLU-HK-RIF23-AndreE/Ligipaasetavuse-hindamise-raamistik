@@ -62,9 +62,3 @@ Töövoo failis kasutatakse järgmisi hindamismeetodi tähiseid:
 - **A** – automaatne hindamine;
 - **M** – manuaalne hindamine;
 - **H** – hübriidne hindamine.
-
-Tööriistade võrdlustabelis kasutatakse järgmisi tähiseid:
-
-- **J** – tööriist tuvastas nõuet rikkuva näite;
-- **E** – tööriist ei tuvastanud nõuet rikkuvat näidet;
-- **O** – tööriist tuvastas probleemi osaliselt või toetas kontrolli, kuid lõplik hinnang vajab manuaalset kontrolli.
