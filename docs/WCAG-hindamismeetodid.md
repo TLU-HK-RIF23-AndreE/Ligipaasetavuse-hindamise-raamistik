@@ -10,7 +10,7 @@ Tabelis on WCAG 2.1 A ja AA taseme edukriteeriumid seostatud EN 301 549 nõueteg
 |---|---|---|---|---|---|
 | 1.1.1 | 9.1.1.1 | Mittetekstiline sisu | A | H | Automaatselt tuvastatakse puuduvad `alt`-atribuudid. Manuaalselt kontrollitakse, kas tekst kirjeldab pildi eesmärki (mitte lihtsalt "pilt1.jpg") ja kas dekoratiivsed pildid on märgitud tühja alt-tekstiga (`alt=""`). |
 | 1.2.1 | 9.1.2.1 | Ainult heliline ja ainult videopõhine sisuesitus (eelsalvestatud sisu puhul) | A | M | Manuaalselt tuleb kontrollida, et helifailil on täpne tekstiline transkriptsioon ja ainult videopõhisel sisul on kirjeldus, mis annab edasi kogu visuaalse info. |
-| 1.2.2 | 9.1.2.2 | Subtiitrid (eelsalvestatud sisu puhul) | M | H | Manuaalselt tuleb hinnata, kas subtiitrid on sünkroonis ja sisaldavad peale kõne ka olulisi heliefekte ning kõnelejate nimesid. |
+| 1.2.2 | 9.1.2.2 | Subtiitrid (eelsalvestatud sisu puhul) | A | M | Manuaalselt tuleb hinnata, kas subtiitrid on sünkroonis ja sisaldavad peale kõne ka olulisi heliefekte ning kõnelejate nimesid. |
 | 1.2.3 | 9.1.2.3 | Helikirjeldus või alternatiivmeedium (eelsalvestatud sisu puhul) | A | M | Manuaalselt tuleb kontrollida, kas heliline kirjeldus või täispikk transkriptsioon selgitab kõike visuaalselt olulist, mis helis ei kajastu. |
 | 1.2.4 | 9.1.2.4 | Subtiitrid (reaalajas edastatava sisu puhul) | AA | M | Manuaalselt tuleb kontrollida ülekande ajal, kas reaalajas tekkiv tekst on piisavalt täpne, loetava viivitusega ja sisaldab olulist helilist infot. |
 | 1.2.5 | 9.1.2.5 | Helikirjeldus (eelsalvestatud sisu puhul) | AA | M | Manuaalselt tuleb hinnata, kas audiokirjeldus on piisavalt detailne ja sisustatud pauside ajal nii, et see ei segaks peamist dialoogi. |
