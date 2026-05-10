@@ -27,7 +27,7 @@ Tabelis on WCAG 2.1 A ja AA taseme edukriteeriumid seostatud EN 301 549 nõueteg
 | 1.4.10 | 9.1.4.10 | Ümberpaigutus | AA | H | Automaatselt on võimalik tuvastada paigutusega seotud võimalikke piiranguid. Manuaalselt kontrollitakse, kas sisu kohandub ilma horisontaalse kerimiseta ka väiksematel ekraanisuurustel (nt 320 CSS pikslit). |
 | 1.4.11 | 9.1.4.11 | Mittetekstilise sisu kontrastsus | AA | H | Automaatselt on võimalik mõõta mitte-tekstiliste elementide kontrasti. Manuaalselt tuleb hinnata nende visuaalset eristatavust ning vastavust nõudele (kontrastsuhe vähemalt 3:1). |
 | 1.4.12 | 9.1.4.12 | Teksti vahekaugus | AA | H | Automaatselt on võimalik tuvastada tekstivahedega seotud stiilipiiranguid. Manuaalselt tuleb kontrollida, kas sisu jääb loetavaks ja kasutatavaks, kui tekstivahed (nt reavahe, tähevahe) suurenevad vastavalt nõuetele. |
-| 1.4.13 | 9.1.4.13 | Sisu hiirega peale liikumisel või fookuse korral | AA | H | Automaatselt on võimalik tuvastada hover- või fookusolekuga seotud elemente, kuid nende käitumise ja kasutatavuse hindamine eeldab manuaalset kontrolli. |
+| 1.4.13 | 9.1.4.13 | Sisu hiirega peale liikumisel või fookuse korral | AA | M | Fookusolekuga seotud elementide käitumise ja kasutatavuse hindamine eeldab manuaalset kontrolli. |
 
 ## Kasutatavus
 
