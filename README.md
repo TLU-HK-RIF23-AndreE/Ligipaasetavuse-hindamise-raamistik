@@ -35,6 +35,50 @@ Manuaalne hindamine võib hõlmata ka ekraanilugeja või muu tugitehnoloogia kas
 
 Tööriistasoovitusi ei tule käsitleda ainsa võimaliku lahendusena. Hindaja võib vajaduse korral kasutada ka teisi tööriistu. Automaatsete tööriistade tulemusi tuleb tõlgendada vastava WCAG edukriteeriumi kontekstis ning vajaduse korral täiendada manuaalse kontrolliga.
 
+## Töövoo kasutamine praktikas
+
+Töövoogu saab kasutada veebilehe ligipääsetavuse esmaseks hindamiseks või olemasoleva hindamisprotsessi täiendamiseks. Hindamist on soovitatav alustada automaatsetest kontrollidest ning seejärel liikuda hübriidsete ja manuaalsete kontrollide juurde.
+
+### Automaatne esmane kontroll
+
+Automaatsete tööriistade abil saab kiiresti tuvastada tehnilisi probleeme, näiteks:
+
+- puuduvad alternatiivtekstid;
+- ebapiisav kontrastsus;
+- puuduvad vormiväljade sildid;
+- vigane HTML- või ARIA-märgistus.
+
+Automaatse kontrolli tulemus ei ole lõplik hinnang. Tööriista tulemust tuleb kontrollida vastava WCAG edukriteeriumi sisust lähtudes.
+
+### Hübriidsete kriteeriumite kontroll
+
+Hübriidsete kriteeriumite puhul saab tööriist kontrolli toetada, kuid lõplik hinnang vajab inimese otsust.
+
+Näiteks WCAG 1.1.1 „Mittetekstiline sisu” puhul saab tööriist tuvastada, kas pildil on `alt`-atribuut olemas. Sellest üksi ei piisa, sest inimene peab hindama, kas alternatiivtekst annab edasi pildi tähenduse ja eesmärgi.
+
+Samuti võib tööriist kontrollida, kas lehel on määratud keeleatribuut, näiteks `lang="et"`, kuid hindaja peab kontrollima, kas määratud keel vastab tegelikule sisule.
+
+### Manuaalne kontroll
+
+Manuaalset kontrolli vajavate kriteeriumite puhul tuleb veebilehte kontrollida tegeliku kasutamise kaudu.
+
+Näiteks klaviatuuriga navigeerimise puhul tuleb kontrollida, kas:
+
+- kõik olulised funktsioonid on kasutatavad ilma hiireta;
+- fookus liigub loogilises järjekorras;
+- fookuses olev element on visuaalselt nähtav;
+- kasutaja ei jää klaviatuuriga liikudes lõksu.
+
+Manuaalset hindamist vajavad sageli ka juhiste arusaadavus, veateadete selgus, fookusjärjestuse loogilisus ning audio- ja videosisu alternatiivide kvaliteet.
+
+### Kohaldatavuse hindamine
+
+Kõik WCAG edukriteeriumid ei pruugi iga veebilehe puhul kohalduda. Näiteks kui veebilehel puudub audio- või videosisu, ei ole vaja hinnata neid edukriteeriume, mis puudutavad subtiitreid, transkriptsioone või helikirjeldust.
+
+### Tööriistasoovituste kasutamine
+
+Tööriistasoovitusi ei tule käsitleda ainsa võimaliku lahendusena. Hindaja võib vajaduse korral kasutada ka teisi tööriistu. Automaatsete tööriistade tulemusi tuleb tõlgendada vastava WCAG edukriteeriumi kontekstis ning vajaduse korral täiendada manuaalse kontrolliga.
+
 ## Kasutatud tähised
 
 Hindamistabelis kasutatakse järgmisi hindamismeetodi tähiseid:
