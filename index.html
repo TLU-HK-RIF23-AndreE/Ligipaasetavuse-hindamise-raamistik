@@ -763,136 +763,6 @@
       </details>
 
       <details class="criterion" open>
-        <summary>1.2.1 Audio-only and Video-only (Prerecorded)</summary>
-        <div class="criterion-content">
-          <div class="example-grid">
-            <div class="example good">
-              <div class="label">Hea näide</div>
-              <div class="media-placeholder">
-                <p><strong>Heliklipp:</strong> teenuse lahtiolekuajad.</p>
-                <audio controls aria-label="Heliklipp teenuse lahtiolekuaegadest">
-                  <source src="sample-audio.mp3" type="audio/mpeg">
-                </audio>
-              </div>
-              <div class="caption-box">
-                <strong>Tekstiline alternatiiv:</strong>
-                Teenus on avatud esmaspäevast reedeni kell 09:00–17:00.
-              </div>
-            </div>
-            <div class="example bad">
-              <div class="label">Halb näide</div>
-              <div class="media-placeholder">
-                <p><strong>Heliklipp:</strong> teenuse lahtiolekuajad.</p>
-                <audio controls aria-label="Heliklipp ilma tekstilise alternatiivita">
-                  <source src="sample-audio.mp3" type="audio/mpeg">
-                </audio>
-              </div>
-              <p class="small-note">Eelsalvestatud ainult helina esitatud sisule puudub tekstiline alternatiiv.</p>
-            </div>
-          </div>
-        </div>
-      </details>
-
-      <details class="criterion" open>
-        <summary>1.2.2 Captions (Prerecorded)</summary>
-        <div class="criterion-content">
-          <div class="example-grid">
-            <div class="example good">
-              <div class="label">Hea näide</div>
-              <video controls width="420" aria-label="Eelsalvestatud video subtiitritega">
-                <source src="sample-video.mp4" type="video/mp4">
-                <track kind="captions" src="captions-et.vtt" srclang="et" label="Eesti subtiitrid" default>
-              </video>
-              <p class="small-note">Eelsalvestatud videol on subtiitrite <code>track</code>-element.</p>
-            </div>
-            <div class="example bad">
-              <div class="label">Halb näide</div>
-              <video controls width="420" aria-label="Eelsalvestatud video ilma subtiitriteta">
-                <source src="sample-video.mp4" type="video/mp4">
-              </video>
-              <p class="small-note">Eelsalvestatud videol puudub subtiitrite <code>track</code>-element.</p>
-            </div>
-          </div>
-        </div>
-      </details>
-
-      <details class="criterion" open>
-        <summary>1.2.3 Audio Description or Media Alternative (Prerecorded)</summary>
-        <div class="criterion-content">
-          <div class="example-grid">
-            <div class="example good">
-              <div class="label">Hea näide</div>
-              <div class="video-placeholder">
-                Video: kasutaja täidab vormi ja vajutab nuppu “Saada”
-              </div>
-              <div class="caption-box">
-                <strong>Meedia alternatiiv:</strong>
-                Videos kuvatakse, kuidas kasutaja sisestab vormi oma nime ja e-posti aadressi ning vajutab nuppu
-                “Saada”.
-              </div>
-            </div>
-            <div class="example bad">
-              <div class="label">Halb näide</div>
-              <div class="video-placeholder">
-                Video: ainult visuaalselt mõistetav tegevus
-              </div>
-              <p class="small-note">Oluline visuaalne tegevus ei ole kirjeldatud audiokirjelduse ega tekstilise
-                alternatiivina.</p>
-            </div>
-          </div>
-        </div>
-      </details>
-
-      <details class="criterion" open>
-        <summary>1.2.4 Captions (Live)</summary>
-        <div class="criterion-content">
-          <div class="example-grid">
-            <div class="example good">
-              <div class="label">Hea näide</div>
-              <div class="video-placeholder">
-                Otseülekanne: infotund
-              </div>
-              <div class="caption-box" aria-label="Otseülekande subtiitrid">
-                <strong>Otse-subtiitrid:</strong> Tere tulemast infotundi. Täna räägime teenuse kasutamisest.
-              </div>
-              <p class="small-note">Otseülekande heliline sisu on esitatud ka subtiitritena.</p>
-            </div>
-            <div class="example bad">
-              <div class="label">Halb näide</div>
-              <div class="video-placeholder">
-                Otseülekanne: infotund
-              </div>
-              <p class="small-note">Otseülekandel puuduvad subtiitrid.</p>
-            </div>
-          </div>
-        </div>
-      </details>
-
-      <details class="criterion" open>
-        <summary>1.2.5 Audio Description (Prerecorded)</summary>
-        <div class="criterion-content">
-          <div class="example-grid">
-            <div class="example good">
-              <div class="label">Hea näide</div>
-              <video controls width="420" aria-label="Eelsalvestatud video audiokirjeldusega">
-                <source src="sample-video.mp4" type="video/mp4">
-                <track kind="descriptions" src="descriptions-et.vtt" srclang="et" label="Eesti audiokirjeldus">
-              </video>
-              <p class="small-note">Videol on audiokirjelduse <code>track</code>-element olulise visuaalse info
-                kirjeldamiseks.</p>
-            </div>
-            <div class="example bad">
-              <div class="label">Halb näide</div>
-              <video controls width="420" aria-label="Eelsalvestatud video ilma audiokirjelduseta">
-                <source src="sample-video.mp4" type="video/mp4">
-              </video>
-              <p class="small-note">Oluline visuaalne info ei ole esitatud audiokirjeldusena.</p>
-            </div>
-          </div>
-        </div>
-      </details>
-
-      <details class="criterion" open>
         <summary>1.3.1 Info and Relationships</summary>
         <div class="criterion-content">
           <div class="example-grid">
@@ -1036,34 +906,6 @@
               <p class="small-note">Väljade eesmärk on nähtav, kuid programmiliselt pole sobivate
                 <code>autocomplete</code>-väärtustega määratud.
               </p>
-            </div>
-          </div>
-        </div>
-      </details>
-
-
-      <details class="criterion" open>
-        <summary>1.4.1 Use of Color</summary>
-        <div class="criterion-content">
-          <div class="example-grid">
-            <div class="example good">
-              <div class="label">Hea näide</div>
-              <p>Olekut ei näidata ainult värviga, vaid ka teksti ja ikooniga.</p>
-              <ul class="color-status-list">
-                <li><span class="status-dot ok" aria-hidden="true"></span><strong>✓ Kinnitatud:</strong> taotlus on
-                  vastu võetud.</li>
-                <li><span class="status-dot error-dot" aria-hidden="true"></span><strong>✕ Viga:</strong> taotluses on
-                  parandamist vajav väli.</li>
-              </ul>
-            </div>
-            <div class="example bad">
-              <div class="label">Halb näide</div>
-              <p>Olekut eristatakse ainult värviga.</p>
-              <ul class="color-status-list">
-                <li><span class="status-dot ok" aria-hidden="true"></span>Taotlus nr 1</li>
-                <li><span class="status-dot error-dot" aria-hidden="true"></span>Taotlus nr 2</li>
-              </ul>
-              <p class="small-note">Ilma värvieristuseta ei ole selge, kumb taotlus on korras ja kumb veaga.</p>
             </div>
           </div>
         </div>
@@ -1293,32 +1135,6 @@
               <p class="small-note">
                 See näeb välja nagu nupp, kuid <code>div</code> ei ole vaikimisi klaviatuuriga kasutatav.
               </p>
-            </div>
-          </div>
-        </div>
-      </details>
-
-      <details class="criterion" open>
-        <summary>2.1.4 Character Key Shortcuts</summary>
-        <div class="criterion-content">
-          <div class="example-grid">
-            <div class="example good">
-              <div class="label">Hea näide</div>
-              <p>Kasuta <span class="kbd">Alt</span> + <span class="kbd">S</span>. Üksiku tähe vajutus ei tee midagi.
-              </p>
-              <button type="button" id="good-shortcut-toggle" aria-pressed="true">Lülita Alt+S funktsioon
-                sisse/välja</button>
-              <div id="good-shortcut-status" class="status-region" aria-live="polite">Kiirklahv on sisse lülitatud.
-              </div>
-            </div>
-            <div class="example bad" id="bad-shortcut-demo" tabindex="0">
-              <div class="label">Halb näide</div>
-              <p>
-                Kui see kast on fookuses, käivitab üksiku tähe <span class="kbd">s</span> vajutamine tegevuse.
-              </p>
-              <div id="bad-shortcut-status" class="status-region" aria-live="polite">
-                Liigu siia TAB-klahviga ja vajuta tähte s.
-              </div>
             </div>
           </div>
         </div>
