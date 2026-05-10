@@ -7,7 +7,7 @@ See repositoorium sisaldab lõputöö "Veebilehe ligipääsetavuse hindamise tö
 - [WCAG hindamismeetodid](docs/WCAG-hindamismeetodid.md) – WCAG 2.1 A- ja AA-taseme edukriteeriumite klassifitseerimine automaatse, manuaalse ja hübriidse hindamise alusel.
 - [Tööriistade võrdlus](docs/Tooriistade-vordlus.md) – valitud ligipääsetavuse hindamise tööriistade võrdlustabel.
 - [Töövoog](docs/Toovoog.md) – veebilehe ligipääsetavuse hindamise töövoog koos edukriteeriumitepõhiste juhiste ja tööriistasoovitustega.
-- `index.html` – HTML-näidisleht, mida kasutati tööriistade testimiseks.
+- [Näidisleht](https://tlu-hk-rif23-andree.github.io/Ligipaasetavuse-hindamise-toovoog/) – HTML-näidisleht, mida kasutati tööriistade testimiseks.
 
 ## Kuidas töövoogu kasutada?
 
