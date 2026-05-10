@@ -11,6 +11,8 @@ Linnuke tähendab, et tööriist tuvastas nõuet rikkuva testjuhtumi. Tühi laht
 - **ST** – Silktide Inspector Extension
 - **AI** – Accessibility Insights for Web
 
+**Tabel on täiendamisel**
+
 | Kriteerium | W | LH | ST | AI | Tulemuse kirjeldus | Soovitus |
 |---|---|---|---|---|---|---|
 | 1.1.1 Mittetekstiline sisu | ✓ | ✓ | ✓ | ✓ | Kõik tööriistad tuvastasid alt-teksti olemasolu või puudumise. Alternatiivteksti sisuline sobivus vajab manuaalset hindamist. | WAVE |
