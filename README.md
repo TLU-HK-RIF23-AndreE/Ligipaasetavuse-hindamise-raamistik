@@ -31,13 +31,9 @@ Manuaalsete edukriteeriumite puhul tuleb veebilehte kontrollida tegeliku kasutam
 
 Manuaalne hindamine võib hõlmata ka ekraanilugeja või muu tugitehnoloogia kasutamist.
 
-### 4. Märgi tulemused hindamistabelisse
+## Märkus
 
-Iga edukriteeriumi puhul tuleks märkida, kas nõue on täidetud, osaliselt täidetud, täitmata või konkreetse veebilehe puhul mittekohalduv. Vajaduse korral lisa kommentaar probleemi asukoha, tööriista tulemuse või manuaalse kontrolli tähelepaneku kohta.
-
-### 5. Tõlgenda tööriistade tulemusi WCAG kriteeriumi kontekstis
-
-Tööriistasoovitused ei tähenda, et konkreetne tööriist annaks lõpliku hinnangu. Tööriist aitab kontrolli alustada, kuid lõplik otsus peab põhinema WCAG edukriteeriumi sisul ja vajaduse korral manuaalsel hindamisel.
+Tööriistasoovitusi ei tule käsitleda ainsa võimaliku lahendusena. Hindaja võib vajaduse korral kasutada ka teisi tööriistu. Automaatsete tööriistade tulemusi tuleb tõlgendada vastava WCAG edukriteeriumi kontekstis ning vajaduse korral täiendada manuaalse kontrolliga.
 
 ## Kasutatud tähised
 
