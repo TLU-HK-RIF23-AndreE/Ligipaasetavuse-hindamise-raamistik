@@ -19,7 +19,7 @@ Linnuke tähendab, et tööriist tuvastas nõuet rikkuva testjuhtumi. Tühi laht
 | 1.3.1 Teave ja seosed | ✓ | ✓ | ✓ |  | WAWE, Silktide ja Lighthouse tuvastasid, et vormil on silt, et seotud andmeväljad on grupeeritud, et tabel on õige struktuuriga. Samuti tuvastas kui nendega oli probleeme. Silktide tuvastas puuduva | WAVE |
 | 1.3.2 Tähenduslik järjestus | ✓ |  | ✓ | ✓ | WAVE, Silktide ja Insights toetasid struktuuri või navigeerimisjärjestuse visualiseerimist. Silktide’i sisseehitatud ekraanilugeja võimaldas kontrollida ka mitteinteraktiivsete elementide esitamise järjekorda. | Silktide |
 | 1.3.5 Sisestuse eesmärgi tuvastamine |  |  |  |  | Ükski valitud tööriist ei tuvastanud `autocomplete` elemendi olemasolu ega puudumist. Manuaalselt tuleb kontrollida nii atribuudi olemasolu kui ka seda, kas selle väärtus vastab sisendvälja tegelikule otstarbele. | Puudub |
-| 1.4.3 Kontrastsus (miinimumnõue) | ✓ | ✓ | ✓ | ✓ | Kõik tööriistad tuvastasid teksti ja tausta ebapiisava kontrastsuse. Silktide'is tuli teksti ja tausta värvused käsitsi valida, mistõttu ei olnud see näidislehe testimisel kõige mugavam lahendus, kuid võib olla kasulik üksikute elementide kontrastsuse kontrollimiseks. |  |
+| 1.4.3 Kontrastsus (miinimumnõue) | ✓ | ✓ | ✓ | ✓ | Kõik tööriistad tuvastasid teksti ja tausta ebapiisava kontrastsuse. Silktide'is tuli teksti ja tausta värvused käsitsi valida, mistõttu ei olnud see näidislehe testimisel kõige mugavam lahendus, kuid võib olla kasulik üksikute elementide kontrastsuse kontrollimiseks. | WAVE |
 | 1.4.4 Teksti suuruse muutmine |  |  |  |  |  |  |
 | 1.4.5 Pildivormingus tekst |  |  |  |  |  |  |
 | 1.4.10 Ümberpaigutus |  |  |  |  |  |  |
