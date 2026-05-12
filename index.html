@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="et">
 
@@ -75,73 +76,6 @@
     header,
     nav,
     main,
-
-    .media-placeholder {
-      border: 1px solid var(--border);
-      background: #ffffff;
-      padding: 1rem;
-      border-radius: .375rem;
-      max-width: 32rem;
-      min-height: 5rem;
-    }
-
-    .video-placeholder {
-      width: 100%;
-      max-width: 28rem;
-      aspect-ratio: 16 / 9;
-      border: 1px solid #777;
-      background: #eeeeee;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 1rem;
-      color: #333333;
-    }
-
-    .caption-box {
-      border: 1px solid var(--border);
-      background: #ffffff;
-      padding: .75rem;
-      border-radius: .375rem;
-      margin-top: .75rem;
-    }
-
-    .color-status-list {
-      list-style: none;
-      padding: 0;
-      margin: .75rem 0 0;
-    }
-
-    .color-status-list li {
-      margin-bottom: .5rem;
-    }
-
-    .status-dot {
-      display: inline-block;
-      width: .9rem;
-      height: .9rem;
-      border-radius: 50%;
-      margin-right: .5rem;
-      vertical-align: middle;
-    }
-
-    .status-dot.ok {
-      background: #1f7a1f;
-    }
-
-    .status-dot.error-dot {
-      background: #b42318;
-    }
-
-    .audio-sim {
-      border: 1px solid var(--border);
-      background: #ffffff;
-      border-radius: .375rem;
-      padding: .75rem;
-      max-width: 30rem;
-    }
-
     footer {
       padding: 1rem;
     }
@@ -1508,143 +1442,139 @@
   </footer>
 
   <script>
-    document.querySelectorAll('[data-toggle-class]').forEach((button) => {
-      button.addEventListener('click', () => {
-        const target = document.getElementById(button.getAttribute('data-target'));
-        const className = button.getAttribute('data-toggle-class');
-        target.classList.toggle(className);
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('[data-toggle-class]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const target = document.getElementById(button.getAttribute('data-target'));
+          const className = button.getAttribute('data-toggle-class');
+
+          if (target && className) {
+            target.classList.toggle(className);
+          }
+        });
       });
-    });
 
-    let goodShortcutEnabled = true;
-    const goodShortcutStatus = document.getElementById('good-shortcut-status');
-    const goodShortcutToggle = document.getElementById('good-shortcut-toggle');
+      const tickerGood = document.getElementById('ticker-good');
+      const pauseTickerButton = document.getElementById('pause-ticker');
 
-    goodShortcutToggle.addEventListener('click', () => {
-      goodShortcutEnabled = !goodShortcutEnabled;
-      goodShortcutToggle.setAttribute('aria-pressed', String(goodShortcutEnabled));
-      goodShortcutStatus.textContent = goodShortcutEnabled
-        ? 'Kiirklahv on sisse lülitatud.'
-        : 'Kiirklahv on välja lülitatud.';
-    });
-
-    document.addEventListener('keydown', (event) => {
-      const tag = document.activeElement ? document.activeElement.tagName : '';
-      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
-
-      if (goodShortcutEnabled && event.altKey && event.key.toLowerCase() === 's') {
-        event.preventDefault();
-        goodShortcutStatus.textContent = 'Alt+S käivitas tegevuse.';
-      }
-    });
-
-    const badShortcutDemo = document.getElementById('bad-shortcut-demo');
-    const badShortcutStatus = document.getElementById('bad-shortcut-status');
-
-    badShortcutDemo.addEventListener('keydown', (event) => {
-      if (!event.altKey && !event.ctrlKey && !event.metaKey && event.key.toLowerCase() === 's') {
-        badShortcutStatus.textContent = 'Üksiku tähe "s" vajutus käivitas tegevuse.';
-      }
-    });
-
-    const tickerGood = document.getElementById('ticker-good');
-    const pauseTickerButton = document.getElementById('pause-ticker');
-
-    pauseTickerButton.addEventListener('click', () => {
-      const paused = tickerGood.classList.toggle('paused');
-      pauseTickerButton.textContent = paused ? 'Jätka' : 'Peata';
-    });
-
-    function makeTimer(config) {
-      let remaining = 0;
-      let interval = null;
-      let timeoutOff = false;
-      const status = document.getElementById(config.statusId);
-      const toastHost = document.getElementById(config.toastId);
-
-      function clearAll() {
-        if (interval) window.clearInterval(interval);
-        interval = null;
+      if (tickerGood && pauseTickerButton) {
+        pauseTickerButton.addEventListener('click', () => {
+          const paused = tickerGood.classList.toggle('paused');
+          pauseTickerButton.textContent = paused ? 'Jätka' : 'Peata';
+        });
       }
 
-      function render() {
-        if (timeoutOff) {
-          status.textContent = 'Ajalimiit on välja lülitatud.';
-          toastHost.innerHTML = '<div class="toast good">Teade jääb avatuks, kuni kasutaja selle sulgeb.</div>';
+      function makeTimer(config) {
+        let remaining = 0;
+        let interval = null;
+        let timeoutOff = false;
+
+        const status = document.getElementById(config.statusId);
+        const toastHost = document.getElementById(config.toastId);
+        const startButton = document.getElementById(config.startId);
+        const extendButton = config.extendId ? document.getElementById(config.extendId) : null;
+        const disableButton = config.disableId ? document.getElementById(config.disableId) : null;
+
+        if (!status || !toastHost || !startButton) {
           return;
         }
 
-        status.textContent = 'Alles on ' + remaining + ' sekundit.';
-        toastHost.innerHTML = '<div class="toast ' + (config.good ? 'good' : 'bad') + '">See teade kaob, kui aeg saab otsa.</div>';
-      }
+        function clearAll() {
+          if (interval) {
+            window.clearInterval(interval);
+          }
 
-      function tick() {
-        if (timeoutOff) return;
-        remaining -= 1;
+          interval = null;
+        }
 
-        if (remaining <= 0) {
+        function render() {
+          if (timeoutOff) {
+            status.textContent = 'Ajalimiit on välja lülitatud.';
+            toastHost.innerHTML = '<div class="toast good">Teade jääb avatuks, kuni kasutaja selle sulgeb.</div>';
+            return;
+          }
+
+          status.textContent = 'Alles on ' + remaining + ' sekundit.';
+          toastHost.innerHTML = '<div class="toast ' + (config.good ? 'good' : 'bad') + '">See teade kaob, kui aeg saab otsa.</div>';
+        }
+
+        function tick() {
+          if (timeoutOff) {
+            return;
+          }
+
+          remaining -= 1;
+
+          if (remaining <= 0) {
+            clearAll();
+            status.textContent = 'Aeg sai otsa.';
+            toastHost.innerHTML = '';
+          } else {
+            render();
+          }
+        }
+
+        startButton.addEventListener('click', () => {
+          timeoutOff = false;
+          remaining = 8;
           clearAll();
-          status.textContent = 'Aeg sai otsa.';
-          toastHost.innerHTML = '';
-        } else {
           render();
+          interval = window.setInterval(tick, 1000);
+        });
+
+        if (extendButton) {
+          extendButton.addEventListener('click', () => {
+            if (interval) {
+              remaining = 20;
+              render();
+            }
+          });
+        }
+
+        if (disableButton) {
+          disableButton.addEventListener('click', () => {
+            timeoutOff = true;
+            clearAll();
+            render();
+          });
         }
       }
 
-      document.getElementById(config.startId).addEventListener('click', () => {
-        timeoutOff = false;
-        remaining = 8;
-        clearAll();
-        render();
-        interval = window.setInterval(tick, 1000);
+      makeTimer({
+        good: true,
+        startId: 'good-time-start',
+        extendId: 'good-time-extend',
+        disableId: 'good-time-disable',
+        statusId: 'good-time-status',
+        toastId: 'good-time-toast'
       });
 
-      if (config.extendId) {
-        document.getElementById(config.extendId).addEventListener('click', () => {
-          if (interval) {
-            remaining = 20;
-            render();
-          }
+      makeTimer({
+        good: false,
+        startId: 'bad-time-start',
+        statusId: 'bad-time-status',
+        toastId: 'bad-time-toast'
+      });
+
+      const favoriteGood = document.getElementById('favorite-good');
+
+      if (favoriteGood) {
+        favoriteGood.addEventListener('click', () => {
+          const pressed = favoriteGood.getAttribute('aria-pressed') === 'true';
+
+          favoriteGood.setAttribute('aria-pressed', String(!pressed));
+          favoriteGood.textContent = pressed ? '☆ Lisa lemmikutesse' : '★ Eemalda lemmikutest';
+          favoriteGood.setAttribute('aria-label', pressed ? 'Lisa lemmikutesse' : 'Eemalda lemmikutest');
         });
       }
-
-      if (config.disableId) {
-        document.getElementById(config.disableId).addEventListener('click', () => {
-          timeoutOff = true;
-          clearAll();
-          render();
-        });
-      }
-    }
-
-    makeTimer({
-      good: true,
-      startId: 'good-time-start',
-      extendId: 'good-time-extend',
-      disableId: 'good-time-disable',
-      statusId: 'good-time-status',
-      toastId: 'good-time-toast'
-    });
-
-    makeTimer({
-      good: false,
-      startId: 'bad-time-start',
-      statusId: 'bad-time-status',
-      toastId: 'bad-time-toast'
-    });
-
-    document.getElementById('favorite-good').addEventListener('click', () => {
-      const button = document.getElementById('favorite-good');
-      const pressed = button.getAttribute('aria-pressed') === 'true';
-
-      button.setAttribute('aria-pressed', String(!pressed));
-      button.textContent = pressed ? '☆ Lisa lemmikutesse' : '★ Eemalda lemmikutest';
-      button.setAttribute('aria-label', pressed ? 'Lisa lemmikutesse' : 'Eemalda lemmikutest');
     });
 
     function toggleBadFavorite() {
       const el = document.getElementById('favorite-bad');
-      el.textContent = el.textContent.trim() === '★' ? '☆' : '★';
+
+      if (el) {
+        el.textContent = el.textContent.trim() === '★' ? '☆' : '★';
+      }
     }
   </script>
 </body>
