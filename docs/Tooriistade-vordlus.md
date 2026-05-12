@@ -26,9 +26,9 @@ Linnuke tähendab, et tööriist tuvastas nõuet rikkuva testjuhtumi. Tühi laht
 | 1.4.11 Mittetekstilise sisu kontrastsus | ✓ |  |  |  | WAVE tuvastas kontrastsuse probleemi. Teised tööriistad mitte. | WAVE |
 | 1.4.12 Teksti vahekaugus |  |  |  |  |  |  |
 | 2.1.1 Klaviatuur | ✓ |  |  |  | WAVE tuvastas, et halva näite nupp ei pruugi olla ligipääsetav. Lighthouse andis üldise info manuaalse kontrolli vajaduse kohta, aga automaatselt probleemi ei tuvastanud. | WAVE |
-| 2.2.1 Ajalimiidi muudetavus |  |  |  |  |  |  |
-| 2.2.2 Ajutine katkestamine, peatamine, peitmine |  |  |  |  |  |  |
-| 2.4.1 Sisuplokkide vahelejätmine |  |  |  |  |  |  |
+| 2.2.1 Ajalimiidi muudetavus |  |  |  |  | Valitud tööriistad ei tuvastanud automaatselt ajapiiranguid. |  |
+| 2.2.2 Ajutine katkestamine, peatamine, peitmine |  |  | ✓ |  | Silktide tuvastas liikuva sisu. | Silktide |
+| 2.4.1 Sisuplokkide vahelejätmine | ✓ |  | ✓ |  | WAVE ja Silktide tuvastasid "Liigi põhisisu juurde" lingi ning erinevad maamärgid (`landmark`). Silktide tuvastas ka halva näite `iframe`'i sees oleva antud edukriteeriumi rikkumise. Lighthouse tuvastas `main` maamärgi olemasolu ja mitteolemasolu, aga põhisisu juurde lingi olemasolu kontroll anti standardse soovitusena.  | Silktide |
 | 2.4.2 Lehe tiitel |  |  |  |  |  |  |
 | 2.4.3 Fookustamise järjekord |  |  |  |  |  |  |
 | 2.4.4 Lingi otstarve (kontekstis) |  |  |  |  |  |  |
