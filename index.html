@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="et">
 
@@ -647,6 +646,12 @@
       object-fit: cover;
       display: block;
     }
+
+    pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
   </style>
 </head>
 
@@ -1140,15 +1145,25 @@
           <div class="example-grid">
             <div class="example good">
               <div class="label">Hea näide</div>
-              <iframe class="iframe-demo" title="Hea näide: kirjeldava pealkirjaga minileht"
-                srcdoc="<!doctype html><html lang='et'><head><title>Teenuse tingimused – näidisleht</title></head><body><h1>Teenuse tingimused</h1><p>Lehel on kirjeldav title-element.</p>">
-              </iframe>
+              <p>
+                Käesoleval lehel on kirjeldav <code>title</code>-element:
+              </p>
+              <pre><code>&lt;title&gt;WCAG 2.1 A ja AA testleht – automaatne ja hübriidne testimine&lt;/title&gt;</code></pre>
+              <p class="small-note">
+                Pealkiri kirjeldab lehe eesmärki ja aitab kasutajal aru saada, millisel lehel ta asub.
+              </p>
             </div>
+
             <div class="example bad">
               <div class="label">Halb näide</div>
-              <iframe class="iframe-demo" title="Halb näide: puuduva pealkirjaga minileht"
-                srcdoc="<!doctype html><html lang='et'><head><title></title></head><body><h1>Teenuse tingimused</h1><p>Title-element on tühi.</p>">
-              </iframe>
+              <p>
+                Halb näide oleks tühi või liiga üldine lehe pealkiri:
+              </p>
+              <pre><code>&lt;title&gt;&lt;/title&gt;</code></pre>
+              <pre><code>&lt;title&gt;Avaleht&lt;/title&gt;</code></pre>
+              <p class="small-note">
+                Selline pealkiri ei kirjelda piisavalt lehe sisu ega eesmärki.
+              </p>
             </div>
           </div>
         </div>
@@ -1200,7 +1215,7 @@
             </div>
             <div class="example bad">
               <div class="label">Halb näide</div>
-              <p><a href="#tingimused">Klõpsa siia</a></p>
+              <p><a href="#tingimused">Click here</a></p>
             </div>
           </div>
         </div>
@@ -1220,7 +1235,7 @@
               <div class="label">Halb näide</div>
               <h3>Info</h3>
               <label for="x1">Sisesta</label>
-              <input id="x1" type="text">
+              <input type="text">
               <p class="small-note">Pealkiri ja silt on liiga üldised.</p>
             </div>
           </div>
@@ -1261,15 +1276,24 @@
           <div class="example-grid">
             <div class="example good">
               <div class="label">Hea näide</div>
-              <iframe class="iframe-demo" title="Hea näide: määratud lehekeelega minileht"
-                srcdoc="<!doctype html><html lang='et'><head><title>Kontakt</title></head><body><h1>Kontakt</h1><p>HTML-elemendil on lang='et'.</p>">
-              </iframe>
+              <p>
+                Käesoleval lehel on lehe põhikeel määratud <code>html</code>-elemendil:
+              </p>
+              <pre><code>&lt;html lang="et"&gt;</code></pre>
+              <p class="small-note">
+                Keele määramine võimaldab ekraanilugeritel ja teistel abitehnoloogiatel valida õige häälduse ja
+                keelepõhised reeglid.
+              </p>
             </div>
             <div class="example bad">
               <div class="label">Halb näide</div>
-              <iframe class="iframe-demo" title="Halb näide: puuduva lehekeelega minileht"
-                srcdoc="<!doctype html><html><head><title>Kontakt</title></head><body><h1>Kontakt</h1><p>HTML-elemendil puudub lang-atribuut.</p>">
-              </iframe>
+              <p>
+                Halb näide oleks leht, mille <code>html</code>-elemendil puudub <code>lang</code>-atribuut:
+              </p>
+              <pre><code>&lt;html&gt;</code></pre>
+              <p class="small-note">
+                Kui lehe põhikeel ei ole määratud, ei pruugi abitehnoloogiad sisu õiges keeles esitada.
+              </p>
             </div>
           </div>
         </div>

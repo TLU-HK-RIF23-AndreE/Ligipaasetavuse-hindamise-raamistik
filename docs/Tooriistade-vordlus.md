@@ -29,13 +29,13 @@ Linnuke tähendab, et tööriist tuvastas nõuet rikkuva testjuhtumi. Tühi laht
 | 2.2.1 Ajalimiidi muudetavus |  |  |  |  | Valitud tööriistad ei tuvastanud automaatselt ajapiiranguid. |  |
 | 2.2.2 Ajutine katkestamine, peatamine, peitmine |  |  | ✓ |  | Silktide tuvastas liikuva sisu. | Silktide |
 | 2.4.1 Sisuplokkide vahelejätmine | ✓ |  | ✓ |  | WAVE ja Silktide tuvastasid "Liigi põhisisu juurde" lingi ning erinevad maamärgid (`landmark`). Silktide tuvastas ka halva näite `iframe`'i sees oleva antud edukriteeriumi rikkumise. Lighthouse tuvastas `main` maamärgi olemasolu ja mitteolemasolu, aga põhisisu juurde lingi olemasolu kontroll anti standardse soovitusena.  | Silktide |
-| 2.4.2 Lehe tiitel |  |  |  |  |  |  |
-| 2.4.3 Fookustamise järjekord |  |  |  |  |  |  |
-| 2.4.4 Lingi otstarve (kontekstis) |  |  |  |  |  |  |
-| 2.4.6 Pealkirjad ja sildid |  |  |  |  |  |  |
-| 2.5.3 Silt nimes |  |  |  |  |  |  |
-| 3.1.1 Lehekülje keel |  |  |  |  |  |  |
-| 3.1.2 Tekstiosade keel |  |  |  |  |  |  |
+| 2.4.2 Lehe tiitel | ✓ | ✓ | ✓ | ✓ | Kõik valitud tööriistad tuvastasid tiitli puudumise. | WAVE |
+| 2.4.3 Fookustamise järjekord | ✓ | ✓ | ✓ | ✓ | Kõik valitud tööriistad tuvastasid positiivse `tabindex`i olemasolu. WAVE, Silktide ja Insights näitavad fookustamise järjekorda visuaalselt | WAVE |
+| 2.4.4 Lingi otstarve (kontekstis) | ✓ |  | ✓ |  | WAVE ja Silktide tuvastasid kahtlase nimega lingi, aga vaid ingliskeelse. | WAVE |
+| 2.4.6 Pealkirjad ja sildid | ✓ | ✓ |  |  | WAVE tuvastas siltide ja pealkirjade olemasolu ja mitteolemasolu. Lighthouse tuvastas siltide puudumise. Silktide puudumist ei tuvastanud, andis vaid soovituse käsitsi pealkirjade ja siltide sobivust kontrollida. | WAVE |
+| 2.5.3 Silt nimes | ✓ |  |  |  | WAVE kuvas nupu juures selle ligipääsetava nimetuse, mistõttu oli nähtava sildi ja ligipääsetava nime võrdlemine lihtne. Teised valitud tööriistad ei andnud selle kontrollimiseks sama selget indikatsiooni. | WAVE |
+| 3.1.1 Lehekülje keel | ✓ | ✓ | ✓ | ✓ | Kõik valitud tööriistad tuvastasid `lang`-atribuudi puudumise. WAVE, Silktide ja Insights tuvastasid ka ebakorrektse keeleparameetri. | WAVE |
+| 3.1.2 Tekstiosade keel | ✓ |  |  |  | WAVE tuvastas teksisisese `lang`-atribuudi. | WAVE |
 | 3.3.1 Vea tuvastamine |  |  |  |  |  |  |
 | 3.3.2 Sildid või instruktsioonid |  |  |  |  |  |  |
 | 4.1.1 Korrektne märgistus |  |  |  |  |  |  |
