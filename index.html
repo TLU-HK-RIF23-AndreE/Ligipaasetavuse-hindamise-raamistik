@@ -391,7 +391,7 @@
     }
 
     .spacing-demo-bad {
-      height: 3.2rem;
+      height: 5rem;
       overflow: hidden;
     }
 
@@ -468,6 +468,11 @@
       background: #fff;
       position: relative;
       margin-top: .5rem;
+      max-width: 100%;
+    }
+
+    .example-grid>.example {
+      min-width: 0;
     }
 
     .ticker-track {
@@ -636,8 +641,15 @@
     }
 
     .decorative-image {
+      width: 120px;
+      height: 60px;
+      object-fit: cover;
       display: block;
-      margin-top: .75rem;
+      margin-bottom: .5rem;
+    }
+
+    .decorative-image-block {
+      margin-top: 1rem;
     }
 
     .content-image {
@@ -714,18 +726,29 @@
             <div class="example good">
               <div class="example-stack">
                 <div class="label">Hea näide</div>
-                <img class="content-image" src="images/raekoda.png" alt="Tartu raekoja plats päikeseloojangu ajal"
-                  width="220" height="100">
+
+                <img class="content-image" src="images/raekoda.png" alt="Tartu raekoja plats päikeseloojangu ajal">
               </div>
-              <p>Dekoratiivpildil on tühi alt-atribuut.</p>
-              <img src="images/dekoratiiv.png" alt="" width="120" height="60">
+
+              <div class="decorative-image-block">
+                <img class="decorative-image" src="images/dekoratiiv.png" alt="">
+
+                <p class="small-note">
+                  Dekoratiivpildil on tühi <code>alt</code>-atribuut.
+                </p>
+              </div>
             </div>
+
             <div class="example bad">
               <div class="example-stack">
                 <div class="label">Halb näide</div>
-                <img class="content-image" src="images/raekoda.png" width="220" height="100">
+
+                <img class="content-image" src="images/raekoda.png">
               </div>
-              <p class="small-note">Pildil puudub <code>alt</code>-atribuut.</p>
+
+              <p class="small-note">
+                Pildil puudub <code>alt</code>-atribuut.
+              </p>
             </div>
           </div>
         </div>
@@ -950,9 +973,9 @@
             </div>
             <div class="example bad">
               <div class="label">Halb näide</div>
-              <img
-                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='90'%3E%3Crect width='420' height='90' fill='%23cce0ff'/%3E%3Ctext x='30' y='55' font-family='Arial' font-size='28' font-weight='700' fill='%23003366'%3EERIHIND AINULT T%C3%84NA%3C/text%3E%3C/svg%3E"
-                alt="Erihind ainult täna" width="420" height="90">
+              <img src="images/piltnupp.png"
+                alt="Sinisel taustal on suurte tumedate tähtedega reklaamtekst „Erihind ainult täna”, mis annab kasutajale teada, et pakkumine kehtib ainult tänase päeva jooksul ja on esitatud pildi sees oleva tekstina."
+                width="420" height="90">
               <p class="small-note">
                 Tekst on pildi sees. Alt-tekst aitab mõista sisu, kuid tekst ise ei ole kasutaja jaoks päris tekstina
                 kohandatav.
@@ -1057,7 +1080,8 @@
               </div>
 
               <div class="spacing-demo spacing-demo-bad" id="spacing-bad">
-                <p>Kui tekstivahed suurenevad, võib see fikseeritud kõrguse tõttu lõikuda või kattuda.</p>
+                <p>Kui tekstivahed suurenevad, võib fikseeritud kõrgusega kast osa tekstist ära lõigata ja muuta sisu
+                  raskesti loetavaks.</p>
               </div>
             </div>
           </div>
@@ -1280,6 +1304,9 @@
                 <div class="label">Hea näide</div>
                 <button type="button" aria-label="Otsi">Otsi</button>
               </div>
+              <p class="small-note">
+                Visuaalne silt “Otsi” sisaldub ligipääsetavas nimes.
+              </p>
             </div>
             <div class="example bad">
               <div class="example-stack">

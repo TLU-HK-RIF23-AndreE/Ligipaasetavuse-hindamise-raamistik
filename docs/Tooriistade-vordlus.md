@@ -20,11 +20,11 @@ Linnuke tähendab, et tööriist tuvastas nõuet rikkuva testjuhtumi. Tühi laht
 | 1.3.2 Tähenduslik järjestus | ✓ |  | ✓ | ✓ | WAVE, Silktide ja Accessibility Insights toetasid struktuuri või navigeerimisjärjestuse visualiseerimist. Silktide’i sisseehitatud ekraanilugeja võimaldas kontrollida ka mitteinteraktiivsete elementide esitamise järjekorda. | Silktide |
 | 1.3.5 Sisestuse eesmärgi tuvastamine |  |  | ✓ |  | Silktide tuvastas väljad, mille sisendi eesmärk ei olnud programmiliselt määratud. See viitab `autocomplete` atribuudi puudumisele. Manuaalselt tuleb kontrollida nii atribuudi olemasolu kui ka seda, kas selle väärtus vastab sisendvälja tegelikule otstarbele. | Silktide |
 | 1.4.3 Kontrastsus (miinimumnõue) | ✓ | ✓ | ✓ | ✓ | Kõik tööriistad tuvastasid teksti ja tausta ebapiisava kontrastsuse. | WAVE |
-| 1.4.4 Teksti suuruse muutmine |  |  |  |  | Valitud tööriistad ei tuvastanud probleemi automaatselt. Teksti suurendamise mõju tuli kontrollida manuaalselt, sest probleem ilmnes alles 200% suurenduse rakendamisel. | Puudub |
-| 1.4.5 Pildivormingus tekst |  |  |  |  |  |  |
-| 1.4.10 Ümberpaigutus |  |  |  |  |  |  |
+| 1.4.4 Teksti suuruse muutmine |  |  |  |  | Valitud tööriistad ei tuvastanud antud näite puhul probleemi automaatselt. Teksti suurendamise mõju tuli kontrollida manuaalselt, sest probleem ilmnes alles 200% suurenduse rakendamisel. | Puudub |
+| 1.4.5 Pildivormingus tekst | ✓ |  |  |  | WAVE tuvastas pildi juures pika `alt`-teksti, mis võib viidata sellele, et pildiga antakse edasi sisulist teavet. Samas ei tuvastanud tööriist otseselt, et tegemist on pildina esitatud tekstiga. Silktide andis soovituse pilti käsitsi kontrollida. | WAVE |
+| 1.4.10 Ümberpaigutus |  |  |  |  | Valitud tööriistad ei tuvastanud antud näite puhul probleemi automaatselt. | Puudub |
 | 1.4.11 Mittetekstilise sisu kontrastsus | ✓ |  |  |  | WAVE tuvastas kontrastsuse probleemi. Teised tööriistad mitte. | WAVE |
-| 1.4.12 Teksti vahekaugus |  |  |  |  |  |  |
+| 1.4.12 Teksti vahekaugus |  |  |  |  | Valitud tööriistad ei tuvastanud antud näite puhul probleemi automaatselt. | Puudub |
 | 2.1.1 Klaviatuur | ✓ |  |  |  | WAVE tuvastas, et halva näite nupp ei pruugi olla ligipääsetav. Lighthouse andis üldise info manuaalse kontrolli vajaduse kohta, aga automaatselt probleemi ei tuvastanud. | WAVE |
 | 2.2.1 Ajalimiidi muudetavus |  |  |  |  | Valitud tööriistad ei tuvastanud automaatselt ajapiiranguid. |  |
 | 2.2.2 Ajutine katkestamine, peatamine, peitmine |  |  | ✓ |  | Silktide tuvastas liikuva sisu. | Silktide |
@@ -39,5 +39,5 @@ Linnuke tähendab, et tööriist tuvastas nõuet rikkuva testjuhtumi. Tühi laht
 | 3.3.1 Vea tuvastamine | ✓ |  |  |  | WAVE tuvastas veateate märgistuse olemasolu, mis aitab kontrollida, kas vigane väli on programmiliselt eristatav. | WAVE |
 | 3.3.2 Sildid või instruktsioonid | ✓ |  | ✓ |  | WAVE ja Silktide tuvastasid veateate sildi puudumise. | WAVE |
 | 4.1.1 Korrektne märgistus |  |  | ✓ |  | Silktide ja Lihgthouse tuvastasid korduvate ID-de olemasolu. | Silktide |
-| 4.1.2 Nimi, roll, väärtus |  | ✓ |  |  | Lighthouse ja Accessibility Insights tuvastasid, et nupul pole ligipääsetavat nime. | Accessibility Insights |
+| 4.1.2 Nimi, roll, väärtus |  | ✓ |  | ✓ | Lighthouse ja Accessibility Insights tuvastasid, et nupul pole ligipääsetavat nime. | Accessibility Insights |
 | 4.1.3 Olekuteated | ✓ |  |  |  | WAVE tuvastas aria-live atribuudi olemasolu, mis viitab sellele, et olekuteade on programmiliselt abitehnoloogiatele edastatav. | WAVE |
