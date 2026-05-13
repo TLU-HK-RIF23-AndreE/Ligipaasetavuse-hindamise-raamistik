@@ -301,11 +301,11 @@
     }
 
     .resize-fail-card {
-      width: 16rem;
-      height: 6rem;
+      width: 18rem;
+      height: 10rem;
       overflow: hidden;
       border: 1px solid var(--border);
-      padding: .5rem;
+      padding: .75rem;
     }
 
     .text-200 {
@@ -902,25 +902,37 @@
           <div class="example-grid">
             <div class="example good">
               <div class="label">Hea näide</div>
-              <p class="small-note">Nupp suurendab ainult teksti 200%, mitte kogu plokki transformiga.</p>
-              <button type="button" data-toggle-class="text-200" data-target="resize-good-panel">Lülita 200%
-                tekst</button>
+              <p class="small-note">
+                Teksti suurendamisel 200%-ni jääb kogu sisu nähtavaks.
+              </p>
+
+              <button type="button" data-toggle-class="text-200" data-target="resize-good-panel">
+                Lülita 200% tekst
+              </button>
+
               <div class="resize-pass-card" id="resize-good-panel">
                 <h3>Paindlik tekstiplokk</h3>
-                <p>See plokk võib kasvada kõrgusesse. Kui tekst suureneb, ei lõigata sisu ära.</p>
-                <button type="button">Jätka</button>
+                <p>
+                  See plokk võib kõrguses kasvada. Kui tekst suureneb, jääb kogu sisu nähtavaks ja loetavaks.
+                </p>
               </div>
             </div>
+
             <div class="example bad">
               <div class="label">Halb näide</div>
-              <p class="small-note">Fikseeritud kõrgus ja <code>overflow: hidden</code> lõikavad suurendatud teksti ära.
+              <p class="small-note">
+                Fikseeritud kõrgus ja <code>overflow: hidden</code> lõikavad suurendatud teksti ära.
               </p>
-              <button type="button" data-toggle-class="text-200" data-target="resize-bad-panel">Lülita 200%
-                tekst</button>
+
+              <button type="button" data-toggle-class="text-200" data-target="resize-bad-panel">
+                Lülita 200% tekst
+              </button>
+
               <div class="resize-fail-card" id="resize-bad-panel">
                 <h3>Piiratud plokk</h3>
-                <p>Kui tekst suureneb, siis osa sisust kaob kasti sisse ära ning kasutaja ei pruugi kogu sisu näha.</p>
-                <button type="button">Jätka</button>
+                <p>
+                  Tavatekst mahub siia veel ära, kuid teksti suurendamisel lõigatakse osa sisust nähtavalt ära.
+                </p>
               </div>
             </div>
           </div>
