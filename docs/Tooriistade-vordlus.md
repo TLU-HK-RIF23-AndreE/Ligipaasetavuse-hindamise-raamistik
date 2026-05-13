@@ -36,8 +36,8 @@ Linnuke tähendab, et tööriist tuvastas nõuet rikkuva testjuhtumi. Tühi laht
 | 2.5.3 Silt nimes | ✓ |  |  |  | WAVE kuvas nupu juures selle ligipääsetava nimetuse, mistõttu oli nähtava sildi ja ligipääsetava nime võrdlemine lihtne. Teised valitud tööriistad ei andnud selle kontrollimiseks sama selget indikatsiooni. | WAVE |
 | 3.1.1 Lehekülje keel | ✓ | ✓ | ✓ | ✓ | Kõik valitud tööriistad tuvastasid `lang`-atribuudi puudumise. WAVE, Silktide ja Insights tuvastasid ka ebakorrektse keeleparameetri. | WAVE |
 | 3.1.2 Tekstiosade keel | ✓ |  |  |  | WAVE tuvastas teksisisese `lang`-atribuudi. | WAVE |
-| 3.3.1 Vea tuvastamine |  |  |  |  |  |  |
-| 3.3.2 Sildid või instruktsioonid |  |  |  |  |  |  |
+| 3.3.1 Vea tuvastamine | ✓ |  |  |  | WAVE tuvastas veateate märgistuse olemasolu, mis aitab kontrollida, kas vigane väli on programmiliselt eristatav. | WAVE |
+| 3.3.2 Sildid või instruktsioonid | ✓ |  | ✓ |  | WAVE ja Silktide tuvastasid veateate sildi puudumise. | WAVE |
 | 4.1.1 Korrektne märgistus |  |  |  |  |  |  |
 | 4.1.2 Nimi, roll, väärtus |  |  |  |  |  |  |
 | 4.1.3 Olekuteated |  |  |  |  |  |  |
