@@ -26,7 +26,7 @@ Linnuke tähendab, et tööriist tuvastas nõuet rikkuva testjuhtumi. Tühi laht
 | 1.4.11 Mittetekstilise sisu kontrastsus | ✓ |  |  |  | WAVE tuvastas kontrastsuse probleemi. Teised tööriistad mitte. | WAVE |
 | 1.4.12 Teksti vahekaugus |  |  |  |  | Valitud tööriistad ei tuvastanud antud näite puhul probleemi automaatselt. | Puudub |
 | 2.1.1 Klaviatuur | ✓ |  |  |  | WAVE tuvastas, et halva näite nupp ei pruugi olla ligipääsetav. Lighthouse andis üldise info manuaalse kontrolli vajaduse kohta, aga automaatselt probleemi ei tuvastanud. | WAVE |
-| 2.2.1 Ajalimiidi muudetavus |  |  |  |  | Valitud tööriistad ei tuvastanud automaatselt ajapiiranguid. |  |
+| 2.2.1 Ajalimiidi muudetavus |  |  |  |  | Valitud tööriistad ei tuvastanud antud näite puhul probleemi automaatselt. | Puudub |
 | 2.2.2 Ajutine katkestamine, peatamine, peitmine |  |  | ✓ |  | Silktide tuvastas liikuva sisu. | Silktide |
 | 2.4.1 Sisuplokkide vahelejätmine | ✓ |  | ✓ |  | WAVE ja Silktide tuvastasid "Liigi põhisisu juurde" lingi ning erinevad maamärgid (`landmark`). Silktide tuvastas ka halva näite `iframe`'i sees oleva antud edukriteeriumi rikkumise. Lighthouse tuvastas `main` maamärgi olemasolu ja mitteolemasolu, aga põhisisu juurde lingi olemasolu kontroll anti standardse soovitusena.  | Silktide |
 | 2.4.2 Lehe tiitel | ✓ | ✓ | ✓ | ✓ | Kõik valitud tööriistad tuvastasid tiitli puudumise. | WAVE |
@@ -40,4 +40,4 @@ Linnuke tähendab, et tööriist tuvastas nõuet rikkuva testjuhtumi. Tühi laht
 | 3.3.2 Sildid või instruktsioonid | ✓ |  | ✓ |  | WAVE ja Silktide tuvastasid veateate sildi puudumise. | WAVE |
 | 4.1.1 Korrektne märgistus |  |  | ✓ |  | Silktide ja Lihgthouse tuvastasid korduvate ID-de olemasolu. | Silktide |
 | 4.1.2 Nimi, roll, väärtus |  | ✓ |  | ✓ | Lighthouse ja Accessibility Insights tuvastasid, et nupul pole ligipääsetavat nime. | Accessibility Insights |
-| 4.1.3 Olekuteated | ✓ |  |  |  | WAVE tuvastas aria-live atribuudi olemasolu, mis viitab sellele, et olekuteade on programmiliselt abitehnoloogiatele edastatav. | WAVE |
+| 4.1.3 Olekuteated | ✓ |  |  |  | WAVE tuvastas `aria-live` atribuudi olemasolu, mis viitab sellele, et olekuteade on programmiliselt abitehnoloogiatele edastatav. | WAVE |
