@@ -652,6 +652,23 @@
       overflow-wrap: anywhere;
       word-break: break-word;
     }
+
+    .duplicate-id-fields {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+    .favorite-bad-button {
+      width: 48px;
+      height: 48px;
+      font-size: 2rem;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
   </style>
 </head>
 
@@ -666,10 +683,10 @@
     </p>
     <nav aria-label="Põhinavigatsioon">
       <ul>
-        <li><a href="#tajutav">Tajutav</a></li>
-        <li><a href="#kasutatav">Kasutatav</a></li>
-        <li><a href="#moistetav">Mõistetav</a></li>
-        <li><a href="#toimiv">Toimiv</a></li>
+        <li><a href="#tajutav">Tajutavus</a></li>
+        <li><a href="#kasutatav">Kasutatavus</a></li>
+        <li><a href="#moistetav">Arusaadavus</a></li>
+        <li><a href="#toimiv">Töökindlus</a></li>
       </ul>
     </nav>
   </header>
@@ -688,7 +705,7 @@
     </section>
 
     <section id="tajutav" aria-labelledby="tajutav-pealkiri">
-      <h2 id="tajutav-pealkiri">1. Tajutav</h2>
+      <h2 id="tajutav-pealkiri">1. Tajutavus</h2>
 
       <details class="criterion" open>
         <summary>1.1.1 Non-text Content</summary>
@@ -1037,7 +1054,7 @@
     </section>
 
     <section id="kasutatav" aria-labelledby="kasutatav-pealkiri">
-      <h2 id="kasutatav-pealkiri">2. Kasutatav</h2>
+      <h2 id="kasutatav-pealkiri">2. Kasutatavus</h2>
 
       <details class="criterion" open>
         <summary>2.1.1 Keyboard</summary>
@@ -1268,7 +1285,7 @@
     </section>
 
     <section id="moistetav" aria-labelledby="moistetav-pealkiri">
-      <h2 id="moistetav-pealkiri">3. Mõistetav</h2>
+      <h2 id="moistetav-pealkiri">3. Arusaadavus</h2>
 
       <details class="criterion" open>
         <summary>3.1.1 Language of Page</summary>
@@ -1363,7 +1380,7 @@
     </section>
 
     <section id="toimiv" aria-labelledby="toimiv-pealkiri">
-      <h2 id="toimiv-pealkiri">4. Toimiv</h2>
+      <h2 id="toimiv-pealkiri">4. Töökindlus</h2>
 
       <details class="criterion" open>
         <summary>4.1.1 Parsing</summary>
@@ -1384,12 +1401,14 @@
             <div class="example bad">
               <div class="label">Halb näide</div>
               <p>Siin on tegelik topelt-ID probleem DOM-is.</p>
-              <label for="kontakt">Kontakt</label>
-              <input id="kontakt">
-              <input id="kontakt">
+              <label class="stacked-label" for="kontakt-dup">Kontakt</label>
+              <div class="duplicate-id-fields">
+                <input id="kontakt-dup" type="text">
+                <input id="kontakt-dup" type="text">
+              </div>
               <p class="small-note">
-                Katkist pesastust ei ole siia lisatud, sest brauser parandab selle sageli automaatselt. Topelt-ID on
-                siiski masinloetav probleem.
+                Katkist pesastust ei ole siia lisatud, sest brauser parandab selle sageli automaatselt.
+                Topelt-ID on siiski masinloetav probleem.
               </p>
             </div>
           </div>
@@ -1415,11 +1434,16 @@
             <div class="example bad">
               <div class="example-stack">
                 <div class="label">Halb näide</div>
-                <div id="favorite-bad" class="fake-button" onclick="toggleBadFavorite()">★</div>
+
+                <button type="button" id="favorite-bad" class="favorite-bad-button" onclick="toggleBadFavorite()">
+                  <span aria-hidden="true">★</span>
+                </button>
               </div>
 
               <p class="small-note">
-                Visuaalselt näeb see välja nagu nupp, aga semantiline roll, ligipääsetav nimi ja olek puuduvad.
+                Nupp on visuaalselt tähistatud täheikooniga, kuid ikoon on abitehnoloogiate eest peidetud.
+                Seetõttu puudub nupul ligipääsetav nimi. Lisaks ei ole lemmikuks märkimise olek programmiliselt
+                määratud.
               </p>
             </div>
           </div>

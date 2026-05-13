@@ -38,6 +38,6 @@ Linnuke tähendab, et tööriist tuvastas nõuet rikkuva testjuhtumi. Tühi laht
 | 3.1.2 Tekstiosade keel | ✓ |  |  |  | WAVE tuvastas teksisisese `lang`-atribuudi. | WAVE |
 | 3.3.1 Vea tuvastamine | ✓ |  |  |  | WAVE tuvastas veateate märgistuse olemasolu, mis aitab kontrollida, kas vigane väli on programmiliselt eristatav. | WAVE |
 | 3.3.2 Sildid või instruktsioonid | ✓ |  | ✓ |  | WAVE ja Silktide tuvastasid veateate sildi puudumise. | WAVE |
-| 4.1.1 Korrektne märgistus |  |  |  |  |  |  |
-| 4.1.2 Nimi, roll, väärtus |  |  |  |  |  |  |
-| 4.1.3 Olekuteated |  |  |  |  |  |  |
+| 4.1.1 Korrektne märgistus |  |  | ✓ |  | Silktide tuvastas korduvate ID-de olemasolu. | Silktide |
+| 4.1.2 Nimi, roll, väärtus |  | ✓ |  |  | Lighthouse tuvastas, et nupul pole ligipääsetavat nime. | Lighthouse |
+| 4.1.3 Olekuteated |  |  |  |  | WAVE tuvastas alert piirkonna olemasolu. |  |
